@@ -3,6 +3,6 @@ plugins {
 }
 
 dependencies {
-  implementation(settings.settingDep.develocity)
-  implementation(settings.settingDep.foojayResolver)
+  implementation(libs.settingDep.develocity)
+  implementation(libs.settingDep.foojayResolver)
 }

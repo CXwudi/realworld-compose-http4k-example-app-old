@@ -14,7 +14,7 @@ dependencyResolutionManagement {
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
     versionCatalogs {
-      create("libraries") {
+      create("libs") {
         from(files("../build-src/libs.versions.toml"))
       }
   }
