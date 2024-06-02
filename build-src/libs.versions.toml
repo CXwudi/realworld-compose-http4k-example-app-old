@@ -1,0 +1,18 @@
+# Include me :)
+# 
+# dependencyResolutionManagement {
+#   versionCatalogs {
+#     create("a-name-other-than-libs") {
+#       from(files("path/to/libs.versions.toml"))
+#     }
+#   }
+# }
+# 
+[libraries]
+# dev dep
+
+# plugin dep
+
+# setting plugin dep
+settingDep-develocity = "com.gradle.develocity:com.gradle.develocity.gradle.plugin:3.17.4"
+settingDep-foojayResolver = "org.gradle.toolchains:foojay-resolver:0.8.0"
