@@ -1,18 +1,26 @@
-# Include me :)
+# Include me in settings.gradle.kts :)
 # 
 # dependencyResolutionManagement {
 #   versionCatalogs {
-#     create("a-name-other-than-libs") {
+#     create("libs") {
 #       from(files("path/to/libs.versions.toml"))
 #     }
 #   }
 # }
 # 
+[versions]
+kotlin = "2.0.0"
+java = "17"
+agp = "8.4.1"
+compose = "1.6.10"
+
 [libraries]
 # dev dep
 
 # plugin dep
-
+pluginDep-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+pluginDep-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+pluginDep-compose = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose" }
 # setting plugin dep
 settingDep-develocity = "com.gradle.develocity:com.gradle.develocity.gradle.plugin:3.17.4"
 settingDep-foojayResolver = "org.gradle.toolchains:foojay-resolver:0.8.0"
