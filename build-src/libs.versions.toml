@@ -19,6 +19,7 @@ compose = "1.6.10"
 
 # plugin dep
 pluginDep-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+pluginDep-kotlinCompose = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 pluginDep-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 pluginDep-compose = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose" }
 # setting plugin dep

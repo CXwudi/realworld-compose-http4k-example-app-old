@@ -1,4 +1,4 @@
 plugins {
-//  id("my.multiplatform-library")
-  base
+  id("my.multiplatform-library")
+//  base
 }
