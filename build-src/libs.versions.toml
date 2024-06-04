@@ -10,7 +10,7 @@
 # 
 [versions]
 kotlin = "2.0.0"
-java = "17"
+java = "21"
 agp = "8.4.1"
 compose = "1.6.10"
 
@@ -25,3 +25,8 @@ pluginDep-compose = { module = "org.jetbrains.compose:compose-gradle-plugin", ve
 # setting plugin dep
 settingDep-develocity = "com.gradle.develocity:com.gradle.develocity.gradle.plugin:3.17.4"
 settingDep-foojayResolver = "org.gradle.toolchains:foojay-resolver:0.8.0"
+
+[plugins]
+
+# a plugin used by gradle files for precompiled script plugin
+buildConfig = { id = "com.github.gmazzo.buildconfig", version = "5.3.5" }
