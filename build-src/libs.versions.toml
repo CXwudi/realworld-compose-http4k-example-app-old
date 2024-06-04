@@ -16,7 +16,7 @@ compose = "1.6.10"
 
 [libraries]
 # dev dep
-
+dev-serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0-RC"
 # plugin dep
 pluginDep-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 pluginDep-kotlinCompose = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
@@ -27,6 +27,6 @@ settingDep-develocity = "com.gradle.develocity:com.gradle.develocity.gradle.plug
 settingDep-foojayResolver = "org.gradle.toolchains:foojay-resolver:0.8.0"
 
 [plugins]
-
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 # a plugin used by gradle files for precompiled script plugin
 buildConfig = { id = "com.github.gmazzo.buildconfig", version = "5.3.5" }

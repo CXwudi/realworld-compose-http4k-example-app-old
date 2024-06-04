@@ -30,8 +30,13 @@ kotlin {
   applyDefaultHierarchyTemplate()
 
   sourceSets {
+    val commonMain by getting {
+      dependencies {
+        implementation(kotlin("stdlib"))
+      }
+    }
     val commonJvmMain by creating {
-      dependsOn(commonMain.get())
+      dependsOn(commonMain)
     }
 
     jvmMain.get().dependsOn(commonJvmMain)
