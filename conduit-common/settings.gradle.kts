@@ -21,7 +21,7 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "conduit-common"
+rootProject.name = "Conduit Common"
 
 plugins {
   // my setting plugin that simply has some other setting plugins where versions are managed in version catalogs

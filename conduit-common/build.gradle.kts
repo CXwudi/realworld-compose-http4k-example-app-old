@@ -3,6 +3,8 @@ plugins {
   alias(libs.plugins.serialization)
 }
 
+group = "mikufan.cx.conduit"
+
 android {
   namespace = "mikufan.cx.conduit.common"
 }
