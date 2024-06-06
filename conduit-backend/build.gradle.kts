@@ -10,6 +10,13 @@ java {
   }
 }
 
+kotlin {
+  compilerOptions {
+    javaParameters = true
+    freeCompilerArgs = freeCompilerArgs.get() + listOf("-Xjsr305=strict") // enable strict null check
+  }
+}
+
 dependencies {
   implementation(kotlin("stdlib"))
   implementation("mikufan.cx.conduit:conduit-common")
