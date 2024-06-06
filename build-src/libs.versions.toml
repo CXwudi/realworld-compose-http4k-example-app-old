@@ -13,10 +13,12 @@ kotlin = "2.0.0"
 java = "17"
 agp = "8.2.0" # ! current stack in here due to https://youtrack.jetbrains.com/issue/IDEA-348937
 compose = "1.6.11"
+decompose = "3.0.0"
 
 [libraries]
 # dev dep
 dev-serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0-RC"
+dev-decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
 # plugin dep
 pluginDep-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 pluginDep-kotlinCompose = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
