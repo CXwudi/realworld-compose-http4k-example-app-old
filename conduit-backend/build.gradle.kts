@@ -1,5 +1,6 @@
 plugins {
   alias(libs.plugins.kotlinJvm)
+  alias(libs.plugins.serialization)
   application
 }
 
@@ -12,4 +13,9 @@ java {
 dependencies {
   implementation(kotlin("stdlib"))
   implementation("mikufan.cx.conduit:conduit-common")
+  implementation(libs.dev.serializationJson)
+}
+
+application {
+  mainClass.set("mikufan.cx.conduit.backend.MainKt")
 }

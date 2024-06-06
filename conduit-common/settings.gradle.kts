@@ -21,7 +21,7 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "conduit-common"
+rootProject.name = "conduit-common" // the name must be yarn compatible, hence using the directory name
 
 plugins {
   // my setting plugin that simply has some other setting plugins where versions are managed in version catalogs

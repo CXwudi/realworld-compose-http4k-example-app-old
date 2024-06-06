@@ -11,8 +11,8 @@
 [versions]
 kotlin = "2.0.0"
 java = "17"
-agp = "8.2.0" # ! intellij is complaining about latest version
-compose = "1.6.10"
+agp = "8.2.0" # ! current stack in here due to https://youtrack.jetbrains.com/issue/IDEA-348937
+compose = "1.6.11"
 
 [libraries]
 # dev dep
