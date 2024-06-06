@@ -19,9 +19,10 @@ dependencyResolutionManagement {
       from(files("../build-src/libs.versions.toml"))
     }
   }
+  includeBuild("../conduit-common")
 }
 
-rootProject.name = "conduit-common"
+rootProject.name = "conduit-backend"
 
 plugins {
   // my setting plugin that simply has some other setting plugins where versions are managed in version catalogs

@@ -10,8 +10,8 @@
 # 
 [versions]
 kotlin = "2.0.0"
-java = "21"
-agp = "8.4.1"
+java = "17"
+agp = "8.2.0" # ! intellij is complaining about latest version
 compose = "1.6.10"
 
 [libraries]
@@ -27,6 +27,7 @@ settingDep-develocity = "com.gradle.develocity:com.gradle.develocity.gradle.plug
 settingDep-foojayResolver = "org.gradle.toolchains:foojay-resolver:0.8.0"
 
 [plugins]
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 # a plugin used by gradle files for precompiled script plugin
 buildConfig = { id = "com.github.gmazzo.buildconfig", version = "5.3.5" }
