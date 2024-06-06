@@ -8,11 +8,20 @@ We've gone to great lengths to adhere to the community styleguides & best practi
 
 For more information on how to this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
 
-# How it works
+## How it works
 
-TODO
+The project is divided into 4 modules:
 
-# Getting started
+1. [`conduit-common`](./conduit-common) - the shared code between the client and the server.
+2. [`conduit-frontend`](./conduit-frontend) - the KMP client source code.
+3. [`conduit-backend`](./conduit-backend) - the server source code.
+4. [`build-src`](./build-src) - shared Gradle build logic, including the [version catalog](./build-src/libs.versions.toml) that is used globally across the project.
 
-TODO
+## Getting started
 
+To develop this project, you need a recent version of Android Studio and IntelliJ IDEA.
+
+- Frontend: Open the `conduit-frontend` directory in Android Studio.
+- Backend: Open the `conduit-backend` directory in IntelliJ IDEA.
+
+For frontend development, you need to follow this [guide](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html#check-your-environment) to set up the Compose Multiplatform development environment.
