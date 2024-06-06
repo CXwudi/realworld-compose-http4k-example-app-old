@@ -5,8 +5,6 @@ import my.util.Versions
 plugins {
   kotlin("multiplatform")
   id("com.android.library")
-  id("org.jetbrains.compose")
-  kotlin("plugin.compose")
 }
 
 kotlin {
@@ -49,7 +47,7 @@ kotlin {
 
 java {
   toolchain {
-    languageVersion = JavaLanguageVersion.of(Versions.JavaVersion)
+    languageVersion = JavaLanguageVersion.of(Versions.Java)
   }
 }
 

@@ -1,5 +1,5 @@
 plugins {
-  id("my.multiplatform-library")
+  id("my.kmp-library")
   alias(libs.plugins.serialization)
 }
 

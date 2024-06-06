@@ -10,4 +10,4 @@ dependencyResolutionManagement {
   }
 }
 
-include("convention:multiplatform-library")
+include("multiplatform-library")

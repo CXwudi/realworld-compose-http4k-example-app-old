@@ -13,6 +13,6 @@ dependencies {
 buildConfig {
   generateAtSync = false
   forClass(packageName = "my.util", className = "Versions") {
-    buildConfigField(Int::class.java, "JavaVersion", libs.versions.java.map { it.toInt() })
+    buildConfigField(Int::class.java, "Java", libs.versions.java.map { it.toInt() })
   }
 }
