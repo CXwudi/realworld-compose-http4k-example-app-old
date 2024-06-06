@@ -1,6 +1,5 @@
 plugins {
   id("my.kmp-library")
-  alias(libs.plugins.serialization)
 }
 
 group = "mikufan.cx.conduit"
@@ -13,7 +12,7 @@ kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
-        implementation(libs.dev.serializationJson)
+
       }
     }
   }

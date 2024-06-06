@@ -1,10 +1,12 @@
 package my
 
+import my.util.Libs
 import my.util.Versions
 
 plugins {
   kotlin("multiplatform")
   id("com.android.library")
+  kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -30,6 +32,7 @@ kotlin {
   sourceSets {
     commonMain.dependencies {
       implementation(kotlin("stdlib"))
+      implementation(Libs.SerializationJson)
     }
 
     commonTest.dependencies {
