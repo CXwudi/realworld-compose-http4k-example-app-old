@@ -19,7 +19,7 @@ The project is divided into 4 modules:
 
 ## Getting started
 
-To develop this project, you need a recent version of Android Studio and IntelliJ IDEA.
+Install Android Studio and IntelliJ IDEA, then:
 
 - Frontend: Open the `conduit-frontend` directory in Android Studio.
 - Backend: Open the `conduit-backend` directory in IntelliJ IDEA.
