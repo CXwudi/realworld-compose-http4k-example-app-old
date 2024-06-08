@@ -10,4 +10,4 @@ dependencyResolutionManagement {
   }
 }
 
-include("multiplatform-library")
+include("version-catalog-util", "multiplatform-library", "kotlin-jvm-app")

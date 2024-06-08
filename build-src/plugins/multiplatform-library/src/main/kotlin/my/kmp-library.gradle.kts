@@ -22,7 +22,7 @@ kotlin {
     iosSimulatorArm64()
   ).forEach {
     it.binaries.framework {
-      baseName = "shared"
+      baseName = "shared" // should we set same baseName for all gradle modules?
       isStatic = true
     }
   }
