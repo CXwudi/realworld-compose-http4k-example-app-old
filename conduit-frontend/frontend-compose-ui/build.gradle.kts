@@ -1,3 +1,5 @@
+import my.util.applyCommonFrontendDependencies
+
 plugins {
   id("my.kmp-library")
   alias(libs.plugins.kotlinCompose)
@@ -9,6 +11,7 @@ android {
 }
 
 kotlin {
+  applyCommonFrontendDependencies()
   sourceSets {
     commonMain.dependencies {
       implementation(project(":frontend-decompose-logic"))
@@ -18,9 +21,6 @@ kotlin {
       implementation(compose.foundation)
       implementation(compose.material3)
       implementation(compose.components.resources)
-
-      implementation(libs.dev.decompose)
-      implementation(libs.dev.koin)
     }
     commonJvmMain.dependencies {
       implementation(compose.uiTooling)

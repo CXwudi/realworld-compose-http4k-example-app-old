@@ -1,3 +1,5 @@
+import my.util.applyCommonFrontendDependencies
+
 plugins {
   id("my.kmp-library")
 }
@@ -7,10 +9,9 @@ android {
 }
 
 kotlin {
+  applyCommonFrontendDependencies()
   sourceSets {
     commonMain.dependencies {
-      implementation(libs.dev.decompose)
-      implementation(libs.dev.koin)
     }
   }
 }
