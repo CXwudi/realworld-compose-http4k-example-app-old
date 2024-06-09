@@ -6,7 +6,7 @@ plugins {
 
 java {
   toolchain {
-    languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get().toInt()))
+    languageVersion.set(JavaLanguageVersion.of(21)) // once Intellij support AGP 8.4.x, we can use libs.versions.java
   }
 }
 

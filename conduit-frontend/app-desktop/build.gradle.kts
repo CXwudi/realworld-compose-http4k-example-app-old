@@ -17,6 +17,12 @@ kotlin {
   }
 }
 
+java {
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
+  }
+}
+
 compose.desktop {
   application {
     mainClass = "mikufan.cx.conduit.frontend.app.desktop.TestMainKt"
