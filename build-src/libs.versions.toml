@@ -22,6 +22,9 @@ koin = "3.5.6"
 dev-serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0-RC"
 dev-decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
 dev-koin = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+dev-androidx-activityCompose = "androidx.activity:activity-compose:1.9.0"
+dev-androidx-appcompat = "androidx.appcompat:appcompat:1.7.0"
+dev-androidx-coreKtx = "androidx.core:core-ktx:1.13.1"
 # plugin dep
 pluginDep-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 pluginDep-kotlinCompose = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }

@@ -1,13 +1,20 @@
 plugins {
-  id("my.kotlin-jvm")
+  alias(libs.plugins.kotlinMultiplatform)
   alias(libs.plugins.compose)
   alias(libs.plugins.kotlinCompose)
 }
 
-dependencies {
-  implementation(project(":frontend-decompose-logic"))
-  implementation(project(":frontend-compose-ui"))
-  implementation(compose.desktop.currentOs)
+kotlin {
+  jvm()
+  sourceSets {
+    jvmMain {
+      dependencies {
+        implementation(project(":frontend-decompose-logic"))
+        implementation(project(":frontend-compose-ui"))
+        implementation(compose.desktop.currentOs)
+      }
+    }
+  }
 }
 
 compose.desktop {

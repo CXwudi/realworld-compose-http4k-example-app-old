@@ -1,7 +1,5 @@
-import my.util.applyCommonFrontendDependencies
-
 plugins {
-  id("my.kmp-library")
+  id("my.kmp-frontend-library")
 }
 
 android {
@@ -9,7 +7,6 @@ android {
 }
 
 kotlin {
-  applyCommonFrontendDependencies()
   sourceSets {
     commonMain.dependencies {
     }

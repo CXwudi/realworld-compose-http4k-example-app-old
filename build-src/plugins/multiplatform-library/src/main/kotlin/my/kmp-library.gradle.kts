@@ -3,6 +3,9 @@ package my
 import my.util.Libs
 import my.util.Versions
 
+/**
+ * Common Kotlin Multiplatform setup for both common and frontend modules.
+ */
 plugins {
   kotlin("multiplatform")
   id("com.android.library")
