@@ -27,6 +27,9 @@ kotlin {
       implementation(compose.desktop.common)
     }
     androidMain.dependencies {
+      implementation(libs.dev.androidx.appcompat)
+      implementation(libs.dev.androidx.coreKtx)
+      implementation(libs.dev.androidx.activityCompose)
     }
   }
 }
