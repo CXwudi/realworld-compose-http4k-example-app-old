@@ -10,4 +10,7 @@ dependencyResolutionManagement {
   }
 }
 
-include("version-catalog-util", "multiplatform-library", "kotlin-jvm-app")
+fileTree(".").matching {
+  include("*/build.gradle.kts")
+  include("*/build.gradle")
+}.files.map { it.parentFile.name }.forEach { include(it) }

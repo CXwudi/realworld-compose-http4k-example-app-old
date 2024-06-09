@@ -37,5 +37,8 @@ develocity {
   }
 }
 
-include("frontend-decompose-logic", "frontend-compose-ui")
+fileTree(".").matching {
+    include("*/build.gradle.kts")
+    include("*/build.gradle")
+}.files.map { it.parentFile.name }.forEach { include(it) }
 

@@ -10,6 +10,7 @@ kotlin {
   sourceSets {
     commonMain.dependencies {
       implementation(libs.dev.decompose)
+      implementation(libs.dev.koin)
     }
   }
 }

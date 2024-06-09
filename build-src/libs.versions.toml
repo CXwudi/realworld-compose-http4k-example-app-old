@@ -11,14 +11,17 @@
 [versions]
 kotlin = "2.0.0"
 java = "17"
-agp = "8.2.0" # ! current stack in here due to https://youtrack.jetbrains.com/issue/IDEA-348937
+agp = "8.2.2" # ! current stuck in 8.2.x due to https://youtrack.jetbrains.com/issue/IDEA-348937
+# also we can't just simply make backend or desktop app to use Java 21 as it breaks the whole project
 compose = "1.6.11"
 decompose = "3.0.0"
+koin = "3.5.6"
 
 [libraries]
 # dev dep
 dev-serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0-RC"
 dev-decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
+dev-koin = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 # plugin dep
 pluginDep-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 pluginDep-kotlinCompose = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
