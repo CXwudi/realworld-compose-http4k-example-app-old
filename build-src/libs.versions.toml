@@ -16,15 +16,25 @@ agp = "8.2.2" # ! current stuck in 8.2.x due to https://youtrack.jetbrains.com/i
 compose = "1.6.11"
 decompose = "3.0.0"
 koin = "3.5.6"
+junit = "5.10.2"
+http4k = "5.23.0.0"
 
 [libraries]
 # dev dep
+# multiplatform
 dev-serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0-RC"
 dev-decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
 dev-koin = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+
+# android
 dev-androidx-activityCompose = "androidx.activity:activity-compose:1.9.0"
 dev-androidx-appcompat = "androidx.appcompat:appcompat:1.7.0"
 dev-androidx-coreKtx = "androidx.core:core-ktx:1.13.1"
+
+# backend
+dev-junitBom = { module = "org.junit:junit-bom", version.ref = "junit" }
+dev-http4kBom = { module = "org.http4k:http4k-bom", version.ref = "http4k" }
+
 # plugin dep
 pluginDep-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 pluginDep-kotlinCompose = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
