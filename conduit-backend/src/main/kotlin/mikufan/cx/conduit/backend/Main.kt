@@ -1,10 +1,20 @@
 package mikufan.cx.conduit.backend
 
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
-import mikufan.cx.conduit.common.TestPojo
+import mikufan.cx.conduit.backend.config.configModule
+import mikufan.cx.conduit.backend.db.dbModule
+import mikufan.cx.inlinelogging.KInlineLogging
+import org.koin.core.KoinApplication
+import org.koin.dsl.koinApplication
+
+fun initKoin(): KoinApplication {
+  val koin = koinApplication {
+    modules(configModule, dbModule)
+  }
+  return koin
+}
 
 fun main(args: Array<String>) {
-  println("Hello, Conduit Backend!")
-  println(Json.encodeToString(TestPojo(1, "MikuFan")))
+  val koin = initKoin()
 }
+
+private val log = KInlineLogging.logger()
