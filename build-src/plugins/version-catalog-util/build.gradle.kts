@@ -12,7 +12,7 @@ buildConfig {
   forClass(packageName = "my.util", className = "Libs", ) {
     buildConfigField(String::class.java, "SerializationJson", libs.dev.serializationJson.map { "$it" })
     buildConfigField(String::class.java, "Decompose", libs.dev.decompose.map { "$it" })
-    buildConfigField(String::class.java, "Koin", libs.dev.koin.map { "$it" })
+    buildConfigField(String::class.java, "KoinBom", libs.dev.koinBom.map { "$it" })
     buildConfigField(String::class.java, "AndroidXAppCompat", libs.dev.androidx.appcompat.map { "$it" })
     buildConfigField(String::class.java, "AndroidXCoreKtx", libs.dev.androidx.coreKtx.map { "$it" })
     buildConfigField(String::class.java, "AndroidXActivityCompose", libs.dev.androidx.activityCompose.map { "$it" })

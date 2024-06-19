@@ -22,7 +22,9 @@ dependencies {
   implementation(kotlin("stdlib"))
   implementation("mikufan.cx.conduit:conduit-common")
   implementation(libs.dev.serializationJson)
-  implementation(libs.dev.koin)
+  implementation(platform(libs.dev.koinBom))
+  implementation("io.insert-koin:koin-core")
+
 
   // https://toolbox.http4k.org/stack/dD1BQU1BWlFETEFTOEItQU1sQTRZRDZBUHBCTEFGRmcmYz1NYWluJnA9bWlrdWZhbi5jeC5jb25kdWl0LmJhY2tlbmQ
   implementation(platform(libs.dev.http4kBom))
