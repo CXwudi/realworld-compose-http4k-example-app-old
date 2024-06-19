@@ -18,6 +18,12 @@ decompose = "3.0.0"
 koin = "3.5.6"
 junit = "5.10.2"
 http4k = "5.23.0.0"
+exposed = "0.51.1"
+h2 = "2.2.224"
+hikari = "5.1.0"
+flyway = "10.15.0"
+logback = "1.5.6"
+slf4j = "2.0.13"
 
 [libraries]
 # dev dep
@@ -34,6 +40,13 @@ dev-androidx-coreKtx = "androidx.core:core-ktx:1.13.1"
 # backend
 dev-junitBom = { module = "org.junit:junit-bom", version.ref = "junit" }
 dev-http4kBom = { module = "org.http4k:http4k-bom", version.ref = "http4k" }
+dev-exposedBom = { module = "org.jetbrains.exposed:exposed-bom", version.ref = "exposed" }
+dev-h2 = { module = "com.h2database:h2", version.ref = "h2" }
+dev-hikari = { module = "com.zaxxer:HikariCP", version.ref = "hikari" }
+dev-flyway = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
+dev-logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+dev-slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+dev-inlineLogging = "com.github.CXwudi:kotlin-jvm-inline-logging:1.0.1"
 
 # plugin dep
 pluginDep-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
