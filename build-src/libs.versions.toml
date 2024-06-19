@@ -14,8 +14,9 @@ java = "17"
 agp = "8.2.2" # ! current stuck in 8.2.x due to https://youtrack.jetbrains.com/issue/IDEA-348937
 # also we can't just simply make backend or desktop app to use Java 21 as it breaks the whole project
 compose = "1.6.11"
-decompose = "3.0.0"
+decompose = "3.1.0"
 koin = "3.5.6"
+
 junit = "5.10.2"
 http4k = "5.23.0.0"
 exposed = "0.51.1"
