@@ -6,9 +6,12 @@ import mikufan.cx.inlinelogging.KInlineLogging
 import org.koin.core.KoinApplication
 import org.koin.dsl.koinApplication
 
+
+val allModules = listOf(configModule, dbModule)
+
 fun initKoin(): KoinApplication {
   val koin = koinApplication {
-    modules(configModule, dbModule)
+    modules(allModules)
   }
   return koin
 }
