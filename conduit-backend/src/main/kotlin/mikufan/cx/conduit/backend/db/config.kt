@@ -16,7 +16,7 @@ fun creatDataSource(dbConfig: DbConfig): DataSource {
   return HikariDataSource(config)
 }
 
-fun createFlyway(dataSource: DataSource) = Flyway
+fun createFlyway(dataSource: DataSource): Flyway = Flyway
   .configure()
   .dataSource(dataSource)
   .load()
