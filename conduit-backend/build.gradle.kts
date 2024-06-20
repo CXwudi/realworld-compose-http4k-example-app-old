@@ -42,9 +42,12 @@ dependencies {
   implementation(libs.dev.slf4j)
   runtimeOnly(libs.dev.logback)
 
+  testImplementation("io.insert-koin:koin-test")
   testImplementation("org.http4k:http4k-testing-approval")
   testImplementation("org.http4k:http4k-testing-hamkrest")
   testImplementation("org.http4k:http4k-testing-kotest")
+  testImplementation(platform(libs.dev.kotestBom))
+  testImplementation("io.kotest:kotest-runner-junit5")
   testImplementation(platform(libs.dev.junitBom))
   testImplementation("org.junit.jupiter:junit-jupiter-api")
   testImplementation("org.junit.jupiter:junit-jupiter-engine")
