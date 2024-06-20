@@ -11,4 +11,6 @@ import org.koin.dsl.module
 val dbModule = module {
   single { creatDataSource(get<Config>().db) }
   singleOf(::createFlyway)
+  singleOf(::createExposedDb)
+  singleOf(::createTransactionManager)
 }

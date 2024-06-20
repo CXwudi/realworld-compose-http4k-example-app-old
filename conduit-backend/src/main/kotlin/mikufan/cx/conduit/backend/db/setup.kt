@@ -4,6 +4,7 @@ import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import mikufan.cx.conduit.backend.config.DbConfig
 import org.flywaydb.core.Flyway
+import org.jetbrains.exposed.sql.Database
 import javax.sql.DataSource
 
 fun creatDataSource(dbConfig: DbConfig): DataSource {
@@ -20,3 +21,7 @@ fun createFlyway(dataSource: DataSource): Flyway = Flyway
   .configure()
   .dataSource(dataSource)
   .load()
+
+fun createExposedDb(dataSource: DataSource) : Database = Database.connect(dataSource)
+
+fun createTransactionManager(db: Database) : TransactionManager = TransactionManagerImpl(db)
