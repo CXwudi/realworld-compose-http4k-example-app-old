@@ -14,7 +14,7 @@ kotlin {
   sourceSets {
     commonMain.dependencies {
       implementation(Libs.Decompose)
-      implementation(project.dependencies.project(Libs.KoinBom))
+      implementation(project.dependencies.platform(Libs.KoinBom))
       implementation("io.insert-koin:koin-core")
     }
 
