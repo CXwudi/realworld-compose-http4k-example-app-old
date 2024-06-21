@@ -2,7 +2,7 @@ package mikufan.cx.conduit.backend.service
 
 import mikufan.cx.conduit.backend.db.TransactionManager
 import mikufan.cx.conduit.backend.db.repo.UserRepo
-import mikufan.cx.conduit.backend.db.transaction
+import mikufan.cx.conduit.backend.db.tx
 import mikufan.cx.conduit.backend.util.ConduitException
 import mikufan.cx.conduit.common.NewUserDto
 import mikufan.cx.conduit.common.UserDto
@@ -13,7 +13,7 @@ class UserService(
 ) {
 
   fun registerUser(user: NewUserDto): UserDto =
-    txManager.transaction {
+    txManager.tx {
       val userDto = userRepo.getByUsername(user.username) ?: userRepo.getByEmail(user.email)
       if (userDto != null) {
         throw ConduitException("User already exists, username or email must be unique")

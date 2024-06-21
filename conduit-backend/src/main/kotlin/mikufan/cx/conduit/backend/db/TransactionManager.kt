@@ -2,13 +2,14 @@ package mikufan.cx.conduit.backend.db
 
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.Transaction
+import org.jetbrains.exposed.sql.transactions.transaction
 
 interface TransactionManager {
   val db: Database
 }
 
-inline fun <reified T> TransactionManager.transaction(crossinline block: Transaction.() -> T): T {
-  return org.jetbrains.exposed.sql.transactions.transaction(db) {
+inline fun <reified T> TransactionManager.tx(crossinline block: Transaction.() -> T): T {
+  return transaction(db) {
     block()
   }
 }
