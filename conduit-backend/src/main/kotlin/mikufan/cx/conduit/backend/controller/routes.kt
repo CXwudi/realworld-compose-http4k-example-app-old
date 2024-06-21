@@ -1,6 +1,7 @@
 package mikufan.cx.conduit.backend.controller
 
 import mikufan.cx.conduit.backend.config.Config
+import mikufan.cx.conduit.backend.controller.handler.RegisterUserHandler
 import org.http4k.core.*
 import org.http4k.core.Method.GET
 import org.http4k.core.Method.POST
@@ -13,7 +14,7 @@ import org.http4k.server.asServer
 
 
 fun conduitRoute(apiRoute: RoutingHttpHandler): RoutingHttpHandler = routes(
-  "/healthcheck" bind GET to { Response(Status.OK) },
+  "/healthcheck" bind GET to { Response(Status.OK).body("OK") },
   "/api" bind apiRoute
 )
 
@@ -27,25 +28,35 @@ fun apiRoute(
   )
 )
 
+enum class RouteEnum {
+  ConduitAll,
+  Api
+}
+
 //// server setup ////
 
 fun conduitHttp4kHandler(
   metricFilter: Filter,
+  loggingFilter: LoggingFilter,
+  lenFailureFilter: Filter,
+  conduitBusinessLogicExpFilter: ConduitBusinessLogicExceptionFilter,
   corsFilter: Filter,
-  errorRspFilter: Filter,
   route: RoutingHttpHandler
 ): HttpHandler {
   return metricFilter
+    .then(loggingFilter)
+    .then(conduitBusinessLogicExpFilter)
+    .then(lenFailureFilter)
     .then(corsFilter)
-    .then(errorRspFilter)
     .then(route)
 }
 
+typealias ConduitServer = Http4kServer
 
 fun conduitServer(
   config: Config,
   handler: HttpHandler,
-): Http4kServer = handler.asServer(JettyLoom(config.port))
+): ConduitServer = handler.asServer(JettyLoom(config.port))
 
 
 
