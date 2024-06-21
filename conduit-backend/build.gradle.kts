@@ -30,6 +30,7 @@ dependencies {
   // https://toolbox.http4k.org/stack/dD1BQU1BWlFETEFTOEItQU1sQTRZRDZBUHBCTEFGRmcmYz1NYWluJnA9bWlrdWZhbi5jeC5jb25kdWl0LmJhY2tlbmQ
   implementation(platform(libs.dev.http4kBom))
   implementation("org.http4k:http4k-core")
+  implementation("org.http4k:http4k-server-jetty")
   implementation("org.http4k:http4k-format-kotlinx-serialization")
   implementation("org.http4k:http4k-metrics-micrometer")
   implementation(platform(libs.dev.exposedBom))
@@ -43,7 +44,7 @@ dependencies {
   implementation(libs.dev.slf4j)
   runtimeOnly(libs.dev.logback)
 
-  testImplementation("io.insert-koin:koin-test")
+  testImplementation("io.insert-koin:koin-test-junit5")
   testImplementation("org.http4k:http4k-testing-approval")
   testImplementation("org.http4k:http4k-testing-hamkrest")
   testImplementation("org.http4k:http4k-testing-kotest")
