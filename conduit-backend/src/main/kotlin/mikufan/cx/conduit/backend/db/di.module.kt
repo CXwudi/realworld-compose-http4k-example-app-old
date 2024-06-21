@@ -2,6 +2,7 @@ package mikufan.cx.conduit.backend.db
 
 import mikufan.cx.conduit.backend.config.Config
 import mikufan.cx.conduit.backend.config.configModule
+import mikufan.cx.conduit.backend.db.repo.UserRepo
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
@@ -13,4 +14,6 @@ val dbModule = module {
   singleOf(::createFlyway)
   singleOf(::createExposedDb)
   singleOf(::createTransactionManager)
+
+  singleOf(::UserRepo)
 }
