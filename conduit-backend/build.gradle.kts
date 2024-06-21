@@ -45,6 +45,7 @@ dependencies {
   runtimeOnly(libs.dev.logback)
 
   testImplementation("io.insert-koin:koin-test-junit5")
+  testImplementation(libs.dev.kotestKoin)
   testImplementation("org.http4k:http4k-testing-approval")
   testImplementation("org.http4k:http4k-testing-hamkrest")
   testImplementation("org.http4k:http4k-testing-kotest")
