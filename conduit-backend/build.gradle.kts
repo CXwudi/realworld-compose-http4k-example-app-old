@@ -37,7 +37,7 @@ dependencies {
   implementation("org.jetbrains.exposed:exposed-core")
   implementation("org.jetbrains.exposed:exposed-dao")
   implementation("org.jetbrains.exposed:exposed-jdbc")
-  implementation(libs.dev.h2)
+  implementation(libs.dev.sqlite)
   implementation(libs.dev.hikari)
   implementation(libs.dev.flyway)
   implementation(libs.dev.inlineLogging)

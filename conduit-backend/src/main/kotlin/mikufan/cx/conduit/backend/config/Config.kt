@@ -1,5 +1,7 @@
 package mikufan.cx.conduit.backend.config
 
+import org.http4k.core.Method
+
 data class Config(
   val port: Int,
   val db: DbConfig,
@@ -15,7 +17,7 @@ data class DbConfig(
 
 data class CorsConfig(
   val allowedOrigins: List<String> = listOf("*"),
-  val allowedMethods: List<String> = listOf("*"),
+  val allowedMethods: List<Method> = Method.entries,
   val allowedHeaders: List<String> = listOf("*"),
   val allowCredentials: Boolean = true
 )
@@ -26,6 +28,6 @@ data class CorsConfig(
  */
 val LOCAL_CONFIG = Config(
   port = 8080,
-  db = DbConfig(url = "jdbc:h2:mem:test", driver = "org.h2.Driver"),
+  db = DbConfig(url = "jdbc:sqlite::memory:", driver = "org.sqlite.JDBC"),
   cors = CorsConfig()
 )
