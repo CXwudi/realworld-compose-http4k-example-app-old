@@ -9,6 +9,8 @@ android {
 kotlin {
   sourceSets {
     commonMain.dependencies {
+      // add dependencies that are specific for this decompose logic module
+      // dependencies used in both this module and compose ui module are extracted into the precompiled script plugin
     }
   }
 }

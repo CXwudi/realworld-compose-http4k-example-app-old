@@ -14,8 +14,16 @@ kotlin {
   sourceSets {
     commonMain.dependencies {
       implementation(Libs.Decompose)
+      implementation(Libs.DecomposeCompose)
+      implementation(Libs.MviKotlin)
+      implementation(Libs.MviKotlinMain)
+      implementation(Libs.MviKotlinCoroutines)
       implementation(project.dependencies.platform(Libs.KoinBom))
       implementation("io.insert-koin:koin-core")
+    }
+
+    commonTest.dependencies {
+      implementation("io.insert-koin:koin-test")
     }
 
     androidMain.dependencies {

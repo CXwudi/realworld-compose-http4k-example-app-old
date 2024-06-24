@@ -15,6 +15,7 @@ agp = "8.2.2" # ! current stuck in 8.2.x due to https://youtrack.jetbrains.com/i
 # also we can't just simply make backend or desktop app to use Java 21 as it breaks the whole project
 compose = "1.6.11"
 decompose = "3.1.0"
+mvikotlin = "4.1.0"
 koin = "3.5.6"
 
 junit = "5.10.2"
@@ -26,6 +27,10 @@ exposed = "0.51.1"
 # multiplatform
 dev-serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0"
 dev-decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
+dev-decomposeCompose = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decompose" }
+dev-mvikotlin = { module = "com.arkivanov.mvikotlin:mvikotlin", version.ref = "mvikotlin" }
+dev-mvikotlinMain = { module = "com.arkivanov.mvikotlin:mvikotlin-main", version.ref = "mvikotlin" }
+dev-mvikotlinCoroutines = { module = "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines", version.ref = "mvikotlin" }
 dev-koinBom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
 
 # android
