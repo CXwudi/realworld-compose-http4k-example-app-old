@@ -7,5 +7,7 @@ import androidx.compose.ui.tooling.preview.UiMode
 @Composable
 @Preview
 fun TestPreview() {
-  TestMainUI()
+  TestMainUI {
+
+  }
 }
