@@ -13,6 +13,19 @@ kotlin {
       implementation(project(":frontend-decompose-logic"))
       implementation(project(":frontend-compose-ui"))
 
+//      implementation(compose.runtime)
+//      implementation(compose.ui)
+//      implementation(compose.foundation)
+//      implementation(compose.material3)
+//      implementation(compose.components.resources)
+//      implementation(compose.components.uiToolingPreview)
+
+      implementation(libs.dev.decompose)
+      implementation(libs.dev.decomposeCompose)
+      implementation(libs.dev.mvikotlin)
+      implementation(libs.dev.mvikotlinMain)
+      implementation(libs.dev.mvikotlinCoroutines)
+
       implementation(libs.dev.androidx.appcompat)
       implementation(libs.dev.androidx.coreKtx)
       implementation(libs.dev.androidx.activityCompose)

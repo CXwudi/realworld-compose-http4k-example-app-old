@@ -13,6 +13,8 @@ plugins {
 kotlin {
   sourceSets {
     commonMain.dependencies {
+      implementation(project.dependencies.platform(Libs.CoroutinesBom))
+      implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
       implementation(Libs.Decompose)
       implementation(Libs.DecomposeCompose)
       implementation(Libs.MviKotlin)

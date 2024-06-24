@@ -11,6 +11,7 @@ buildConfig {
   }
   forClass(packageName = "my.util", className = "Libs", ) {
     buildConfigField(String::class.java, "SerializationJson", libs.dev.serializationJson.map { "$it" })
+    buildConfigField(String::class.java, "CoroutinesBom", libs.dev.coroutinesBom.map { "$it" })
     buildConfigField(String::class.java, "Decompose", libs.dev.decompose.map { "$it" })
     buildConfigField(String::class.java, "DecomposeCompose", libs.dev.decomposeCompose.map { "$it" })
     buildConfigField(String::class.java, "MviKotlin", libs.dev.mvikotlin.map { "$it" })
