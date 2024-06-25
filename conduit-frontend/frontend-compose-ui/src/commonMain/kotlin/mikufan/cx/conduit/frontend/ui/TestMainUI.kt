@@ -1,22 +1,23 @@
 package mikufan.cx.conduit.frontend.ui
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.stack.Children
 import com.arkivanov.decompose.extensions.compose.stack.animation.fade
 import com.arkivanov.decompose.extensions.compose.stack.animation.stackAnimation
+import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import mikufan.cx.conduit.frontend.logic.RootComponent
+import mikufan.cx.conduit.frontend.logic.RootComponentChild
 import mikufan.cx.conduit.frontend.logic.ScreenAComponent
+import mikufan.cx.conduit.frontend.logic.ScreenAIntent
 import mikufan.cx.conduit.frontend.logic.ScreenBComponent
 
 @Composable
@@ -37,8 +38,8 @@ fun RootScreen(component: RootComponent, modifier: Modifier = Modifier) {
   ) {
 
     when (val child = it.instance) {
-      is RootComponent.RootComponentChild.ScreenA -> ScreenA(child.component)
-      is RootComponent.RootComponentChild.ScreenB -> ScreenB(child.component)
+      is RootComponentChild.ScreenA -> ScreenA(child.component)
+      is RootComponentChild.ScreenB -> ScreenB(child.component)
     }
   }
 
@@ -49,12 +50,17 @@ fun ScreenA(
   component: ScreenAComponent
 ) = Column {
   Text("Screen A")
-  var text by remember { mutableStateOf("") }
+
+  val state by component.state.subscribeAsState()
+  val text by remember {
+    derivedStateOf { state.text }
+  }
+
   OutlinedTextField(
     value = text,
-    onValueChange = { text = it }
+    onValueChange = { component.sendIntent(ScreenAIntent.TextChange(it)) }
   )
-  Button({ component.toScreenB(text) }) {
+  Button({ component.sendIntent(ScreenAIntent.ToScreenB) }) {
     Text("Navigate to Screen B")
   }
 }
