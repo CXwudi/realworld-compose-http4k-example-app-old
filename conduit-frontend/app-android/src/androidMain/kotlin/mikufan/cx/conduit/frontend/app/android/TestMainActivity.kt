@@ -14,9 +14,9 @@ class TestMainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    val defaultComponentContext = defaultComponentContext()
     val storeFactory = DefaultStoreFactory()
 
+    val defaultComponentContext = defaultComponentContext()
     val rootComponent = DefaultRootComponent(defaultComponentContext, storeFactory)
     setContent {
       TestMainUI {
