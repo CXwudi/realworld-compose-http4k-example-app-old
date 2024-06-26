@@ -5,40 +5,19 @@ import com.arkivanov.decompose.value.Value
 import com.arkivanov.mvikotlin.core.instancekeeper.getStore
 import com.arkivanov.mvikotlin.core.rx.observer
 import com.arkivanov.mvikotlin.core.store.StoreFactory
-import com.arkivanov.mvikotlin.extensions.coroutines.coroutineExecutorFactory
-import kotlinx.serialization.Serializable
-import mikufan.cx.conduit.frontend.logic.util.asValue
+import mikufan.cx.conduit.frontend.logic.util.MviComponent
+import mikufan.cx.conduit.frontend.logic.util.stateValue
 
-interface ScreenAComponent {
-  val state: Value<ScreenAState>
-  fun sendIntent(intent: ScreenAIntent)
-}
+interface ScreenAComponent : MviComponent<ScreenAIntent, ScreenAState>
 
 class DefaultScreenAComponent(
   private val componentContext: ComponentContext,
-  private val storeFactory: StoreFactory,
+  storeFactory: StoreFactory,
   val onScreenBNavigate: (String) -> Unit
 ) : ScreenAComponent, ComponentContext by componentContext {
 
   private val store = instanceKeeper.getStore {
-    storeFactory
-      .create<ScreenAIntent, Nothing, ScreenAMsg, ScreenAState, ScreenAToScreenB>(
-        name = "ScreenAStore",
-        initialState = ScreenAState(""),
-        executorFactory = coroutineExecutorFactory {
-          onIntent<ScreenAIntent.TextChange> {
-            dispatch(ScreenAMsg.TextChange(it.text))
-          }
-          onIntent<ScreenAIntent.ToScreenB> {
-            publish(ScreenAToScreenB(state().text))
-          }
-        },
-        reducer = { msg ->
-          when (msg) {
-            is ScreenAMsg.TextChange -> ScreenAState(msg.text)
-          }
-        }
-      )
+    ScreenAStore(storeFactory)
   }
 
   init {
@@ -47,27 +26,10 @@ class DefaultScreenAComponent(
     })
   }
 
-  override val state: Value<ScreenAState> = store.asValue()
+  override val state: Value<ScreenAState> = store.stateValue
 
-  override fun sendIntent(intent: ScreenAIntent) {
+  override fun send(intent: ScreenAIntent) {
     store.accept(intent)
   }
 }
 
-sealed interface ScreenAIntent {
-  data object ToScreenB : ScreenAIntent
-  data class TextChange(val text: String) : ScreenAIntent
-}
-
-sealed interface ScreenAMsg {
-  data class TextChange(val text: String) : ScreenAMsg
-}
-
-data class ScreenAToScreenB(
-  val id: String
-)
-
-@Serializable
-data class ScreenAState(
-  val text: String
-)

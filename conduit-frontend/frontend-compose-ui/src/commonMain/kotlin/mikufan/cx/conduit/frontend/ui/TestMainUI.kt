@@ -59,9 +59,9 @@ fun ScreenA(
 
   OutlinedTextField(
     value = text,
-    onValueChange = { component.sendIntent(ScreenAIntent.TextChange(it)) }
+    onValueChange = { component.send(ScreenAIntent.TextChange(it)) }
   )
-  Button({ component.sendIntent(ScreenAIntent.ToScreenB) }) {
+  Button({ component.send(ScreenAIntent.ToScreenB) }) {
     Text("Navigate to Screen B")
   }
 }
@@ -70,7 +70,7 @@ fun ScreenA(
 fun ScreenB(component: ScreenBComponent) = Column {
   Text("Screen B: ")
   Text(component.id)
-  Button({ component.sendIntent(ScreenBIntent.BackToScreenA) }) {
+  Button({ component.send(ScreenBIntent.BackToScreenA) }) {
     Text("Back")
   }
 }

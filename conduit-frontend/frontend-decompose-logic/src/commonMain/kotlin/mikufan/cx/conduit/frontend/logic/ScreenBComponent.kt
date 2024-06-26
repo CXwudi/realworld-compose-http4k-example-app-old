@@ -1,54 +1,40 @@
 package mikufan.cx.conduit.frontend.logic
 
 import com.arkivanov.decompose.ComponentContext
+import com.arkivanov.decompose.value.Value
 import com.arkivanov.mvikotlin.core.instancekeeper.getStore
 import com.arkivanov.mvikotlin.core.rx.observer
 import com.arkivanov.mvikotlin.core.store.StoreFactory
-import com.arkivanov.mvikotlin.core.store.create
-import com.arkivanov.mvikotlin.extensions.coroutines.coroutineExecutorFactory
+import mikufan.cx.conduit.frontend.logic.util.MviComponent
+import mikufan.cx.conduit.frontend.logic.util.stateValue
 
-interface ScreenBComponent {
+interface ScreenBComponent : MviComponent<ScreenBIntent, ScreenBState> {
   val id: String
-  fun sendIntent(intent: ScreenBIntent)
-}
-
-sealed interface ScreenBIntent {
-  data object BackToScreenA : ScreenBIntent
 }
 
 class DefaultScreenBComponent(
   override val id: String,
   val componentContext: ComponentContext,
-  val storeFactory: StoreFactory,
+  storeFactory: StoreFactory,
   val onBackPressed: () -> Unit,
 ) : ScreenBComponent, ComponentContext by componentContext {
 
   private val store = instanceKeeper.getStore {
-    storeFactory.create<ScreenBIntent, Nothing, Nothing, ScreenBState, ScreenBLabel>(
-      name = "ScreenBStore",
-      initialState = ScreenBState,
-      executorFactory = coroutineExecutorFactory {
-        onIntent<ScreenBIntent.BackToScreenA> {
-          publish(ScreenBLabel.BackToScreenA)
-        }
-      }
-    )
+    ScreenBStore(storeFactory)
   }
 
   init {
-    store.labels(observer {
+    this.store.labels(observer {
       onBackPressed()
     })
   }
 
-  override fun sendIntent(intent: ScreenBIntent) {
+  override val state: Value<ScreenBState>
+    get() = store.stateValue
+
+  override fun send(intent: ScreenBIntent) {
     store.accept(intent)
   }
 
 }
 
-data object ScreenBState
-
-sealed interface ScreenBLabel {
-  object BackToScreenA : ScreenBLabel
-}

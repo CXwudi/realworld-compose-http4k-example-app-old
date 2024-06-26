@@ -2,6 +2,9 @@ package mikufan.cx.conduit.frontend.logic.util
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.value.Value
+import com.arkivanov.mvikotlin.core.store.Store
+import com.arkivanov.mvikotlin.extensions.coroutines.labels
+import kotlinx.coroutines.flow.Flow
 
 /**
  * A single MVI component that accept an [Intent] and update the exposed single [State] value.
@@ -13,9 +16,8 @@ import com.arkivanov.decompose.value.Value
  *
  * @param Intent
  * @param State
- * @constructor Create empty Mvi component
  */
-interface MviComponent<Intent, State : Any> : ComponentContext {
+interface MviComponent<Intent : Any, State : Any> {
   val state: Value<State>
   fun send(intent: Intent)
 }

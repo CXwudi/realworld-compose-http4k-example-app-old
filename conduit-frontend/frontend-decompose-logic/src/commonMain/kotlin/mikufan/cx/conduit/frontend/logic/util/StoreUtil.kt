@@ -5,8 +5,8 @@ import com.arkivanov.decompose.value.Value
 import com.arkivanov.mvikotlin.core.rx.observer
 import com.arkivanov.mvikotlin.core.store.Store
 
-fun <T : Any> Store<*, T, *>.asValue(): Value<T> =
-  object : Value<T>() {
+val <T : Any> Store<*, T, *>.stateValue: Value<T>
+  get() = object : Value<T>() {
     override val value: T get() = state
 
     override fun subscribe(observer: (T) -> Unit): Cancellation {
@@ -17,3 +17,4 @@ fun <T : Any> Store<*, T, *>.asValue(): Value<T> =
       }
     }
   }
+
