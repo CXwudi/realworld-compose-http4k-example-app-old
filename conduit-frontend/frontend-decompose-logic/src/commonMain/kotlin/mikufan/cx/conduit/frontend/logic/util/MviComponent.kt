@@ -6,9 +6,9 @@ import com.arkivanov.decompose.value.Value
 /**
  * A single MVI component that accept an [Intent] and update the exposed single [State] value.
  *
- * Suitable for [com.arkivanov.decompose.Component] that is used for a single UI.
+ * Suitable for [ComponentContext] that is used for a single UI.
  *
- * Probably not suitable for [com.arkivanov.decompose.Component] that is used for navigation.
+ * Probably not suitable for [ComponentContext] that is used for navigation.
  * Although you can and it will break the MVI pattern as you will have another exposed value for navigation.
  *
  * @param Intent
