@@ -45,7 +45,7 @@ class DefaultRootComponent(
         DefaultScreenAComponent(componentContext, storeFactory) { stackNavigation.push(NavigationConfig.ScreenBConfig(it)) }
       )
       is NavigationConfig.ScreenBConfig -> RootComponentChild.ScreenB(
-        DefaultScreenBComponent(navigationConfig.id, componentContext) { stackNavigation.pop() }
+        DefaultScreenBComponent(navigationConfig.id, componentContext, storeFactory) { stackNavigation.pop() }
       )
     }
   }

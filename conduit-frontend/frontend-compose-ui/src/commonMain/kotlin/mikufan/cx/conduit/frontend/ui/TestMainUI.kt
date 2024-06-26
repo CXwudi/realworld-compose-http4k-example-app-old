@@ -19,6 +19,7 @@ import mikufan.cx.conduit.frontend.logic.RootComponentChild
 import mikufan.cx.conduit.frontend.logic.ScreenAComponent
 import mikufan.cx.conduit.frontend.logic.ScreenAIntent
 import mikufan.cx.conduit.frontend.logic.ScreenBComponent
+import mikufan.cx.conduit.frontend.logic.ScreenBIntent
 
 @Composable
 fun TestMainUI(
@@ -69,7 +70,7 @@ fun ScreenA(
 fun ScreenB(component: ScreenBComponent) = Column {
   Text("Screen B: ")
   Text(component.id)
-  Button({ component.onBack() }) {
+  Button({ component.sendIntent(ScreenBIntent.BackToScreenA) }) {
     Text("Back")
   }
 }
