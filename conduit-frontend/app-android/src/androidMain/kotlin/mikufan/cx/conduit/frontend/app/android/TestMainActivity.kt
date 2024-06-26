@@ -5,6 +5,7 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.defaultComponentContext
+import com.arkivanov.mvikotlin.main.store.DefaultStoreFactory
 import mikufan.cx.conduit.frontend.logic.DefaultRootComponent
 import mikufan.cx.conduit.frontend.ui.RootScreen
 import mikufan.cx.conduit.frontend.ui.TestMainUI
@@ -14,7 +15,9 @@ class TestMainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
 
     val defaultComponentContext = defaultComponentContext()
-    val rootComponent = DefaultRootComponent(defaultComponentContext)
+    val storeFactory = DefaultStoreFactory()
+
+    val rootComponent = DefaultRootComponent(defaultComponentContext, storeFactory)
     setContent {
       TestMainUI {
         RootScreen(rootComponent)
