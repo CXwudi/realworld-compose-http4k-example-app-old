@@ -6,6 +6,7 @@ import com.arkivanov.mvikotlin.core.instancekeeper.getStore
 import com.arkivanov.mvikotlin.core.rx.observer
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.arkivanov.mvikotlin.extensions.coroutines.coroutineExecutorFactory
+import kotlinx.serialization.Serializable
 import mikufan.cx.conduit.frontend.logic.util.asValue
 
 interface ScreenAComponent {
@@ -66,6 +67,7 @@ data class ScreenAToScreenB(
   val id: String
 )
 
+@Serializable
 data class ScreenAState(
   val text: String
 )
