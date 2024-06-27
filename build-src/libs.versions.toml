@@ -33,6 +33,7 @@ dev-mvikotlin = { module = "com.arkivanov.mvikotlin:mvikotlin", version.ref = "m
 dev-mvikotlinMain = { module = "com.arkivanov.mvikotlin:mvikotlin-main", version.ref = "mvikotlin" }
 dev-mvikotlinCoroutines = { module = "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines", version.ref = "mvikotlin" }
 dev-koinBom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
+dev-kotlinWrapper = "org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.763"
 
 # android
 dev-androidx-activityCompose = "androidx.activity:activity-compose:1.9.0"
