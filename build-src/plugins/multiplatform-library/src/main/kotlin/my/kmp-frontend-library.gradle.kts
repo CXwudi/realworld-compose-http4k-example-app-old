@@ -20,6 +20,7 @@ kotlin {
       implementation(Libs.MviKotlin)
       implementation(Libs.MviKotlinMain)
       implementation(Libs.MviKotlinCoroutines)
+      implementation(Libs.MviKotlinLogging)
       implementation(project.dependencies.platform(Libs.KoinBom))
       implementation("io.insert-koin:koin-core")
     }

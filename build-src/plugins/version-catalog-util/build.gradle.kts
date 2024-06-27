@@ -17,6 +17,7 @@ buildConfig {
     buildConfigField(String::class.java, "MviKotlin", libs.dev.mvikotlin.map { "$it" })
     buildConfigField(String::class.java, "MviKotlinMain", libs.dev.mvikotlinMain.map { "$it" })
     buildConfigField(String::class.java, "MviKotlinCoroutines", libs.dev.mvikotlinCoroutines.map { "$it" })
+    buildConfigField(String::class.java, "MviKotlinLogging", libs.dev.mvikotlinLogging.map { "$it" })
     buildConfigField(String::class.java, "KoinBom", libs.dev.koinBom.map { "$it" })
     buildConfigField(String::class.java, "KotlinWrapper", libs.dev.kotlinWrapper.map { "$it" })
     buildConfigField(String::class.java, "AndroidXAppCompat", libs.dev.androidx.appcompat.map { "$it" })
