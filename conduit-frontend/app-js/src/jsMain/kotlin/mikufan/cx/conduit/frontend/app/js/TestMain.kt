@@ -6,29 +6,41 @@ import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import com.arkivanov.essenty.lifecycle.resume
 import com.arkivanov.essenty.lifecycle.stop
+import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.arkivanov.mvikotlin.main.store.DefaultStoreFactory
 import mikufan.cx.conduit.frontend.logic.DefaultRootComponent
+import mikufan.cx.conduit.frontend.logic.essentyModule
 import mikufan.cx.conduit.frontend.ui.RootScreen
 import mikufan.cx.conduit.frontend.ui.TestMainUI
 import org.jetbrains.skiko.wasm.onWasmReady
+import org.koin.dsl.koinApplication
+import org.koin.dsl.module
 import web.dom.DocumentVisibilityState
 import web.dom.document
 import web.events.EventType
 import web.events.addEventListener
 
+fun initKoin(componentContext: DefaultComponentContext) = koinApplication {
+  modules(module {
+    single { componentContext }
+  })
+  modules(essentyModule)
+}
+
+
 @OptIn(ExperimentalComposeUiApi::class)
 fun main(args: Array<String>) {
-
-  val storeFactory = DefaultStoreFactory()
 
   val lifecycle = LifecycleRegistry()
   val defaultComponentContext = DefaultComponentContext(
     lifecycle = lifecycle
   )
+
+  val koin = initKoin(defaultComponentContext).koin
+  val storeFactory = koin.get<StoreFactory>()
   val rootComponent = DefaultRootComponent(defaultComponentContext, storeFactory)
 
   lifecycle.attachToDocument()
-
 
   onWasmReady {
     CanvasBasedWindow("Conduit") {

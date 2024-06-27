@@ -20,15 +20,20 @@ kotlin {
 //      implementation(compose.components.resources)
 //      implementation(compose.components.uiToolingPreview)
 
+      implementation(libs.dev.androidx.appcompat)
+      implementation(libs.dev.androidx.coreKtx)
+      implementation(libs.dev.androidx.activityCompose)
+
       implementation(libs.dev.decompose)
       implementation(libs.dev.decomposeCompose)
       implementation(libs.dev.mvikotlin)
       implementation(libs.dev.mvikotlinMain)
       implementation(libs.dev.mvikotlinCoroutines)
 
-      implementation(libs.dev.androidx.appcompat)
-      implementation(libs.dev.androidx.coreKtx)
-      implementation(libs.dev.androidx.activityCompose)
+      implementation(project.dependencies.platform(libs.dev.koinBom))
+      implementation("io.insert-koin:koin-core")
+      implementation("io.insert-koin:koin-android")
+
     }
   }
 }
