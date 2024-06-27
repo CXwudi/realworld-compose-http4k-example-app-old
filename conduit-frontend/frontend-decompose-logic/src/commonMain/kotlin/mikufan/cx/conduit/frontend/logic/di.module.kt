@@ -2,7 +2,10 @@ package mikufan.cx.conduit.frontend.logic
 
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.mvikotlin.core.store.StoreFactory
+import com.arkivanov.mvikotlin.logging.store.LoggingStoreFactory
 import com.arkivanov.mvikotlin.main.store.DefaultStoreFactory
+import mikufan.cx.conduit.frontend.logic.service.SampleCounterNoServive
+import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
 /**
@@ -15,10 +18,14 @@ val essentyModule = module {
   single { get<DefaultComponentContext>().instanceKeeper }
 }
 
-val storeModule = module {
-  single<StoreFactory> { DefaultStoreFactory() }
-  single { ScreenAStoreFactory(get()) }
-  single { ScreenBStoreFactory(get()) }
+val serviceModule = module {
+  single { SampleCounterNoServive() }
 }
 
-val allModules = listOf(essentyModule, storeModule)
+val storeModule = module {
+  single<StoreFactory> { LoggingStoreFactory(DefaultStoreFactory()) }
+  singleOf(::ScreenAStoreFactory)
+  singleOf(::ScreenBStoreFactory)
+}
+
+val allModules = listOf(essentyModule, serviceModule, storeModule)

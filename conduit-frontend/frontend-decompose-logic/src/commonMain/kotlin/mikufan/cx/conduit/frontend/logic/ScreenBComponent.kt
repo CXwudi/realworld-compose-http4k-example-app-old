@@ -28,8 +28,7 @@ class DefaultScreenBComponent(
     })
   }
 
-  override val state: Value<ScreenBState>
-    get() = store.stateValue
+  override val state: Value<ScreenBState> = store.stateValue
 
   override fun send(intent: ScreenBIntent) {
     store.accept(intent)
