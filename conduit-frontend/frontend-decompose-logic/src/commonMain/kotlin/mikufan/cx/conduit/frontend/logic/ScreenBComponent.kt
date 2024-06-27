@@ -20,7 +20,7 @@ class DefaultScreenBComponent(
 ) : ScreenBComponent, ComponentContext by componentContext {
 
   private val store = instanceKeeper.getStore {
-    ScreenBStore(storeFactory)
+    ScreenBStoreFactory(storeFactory).createStore()
   }
 
   init {

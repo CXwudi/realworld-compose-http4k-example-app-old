@@ -4,6 +4,6 @@ import org.koin.core.Koin
 import org.koin.core.component.KoinComponent
 
 interface LocalKoinComponent : KoinComponent {
-  val koin: Koin
-  override fun getKoin() = koin
+  val localKoin: Koin
+  override fun getKoin() = localKoin
 }

@@ -22,7 +22,7 @@ sealed class RootComponentChild {
 
 class DefaultRootComponent(
   val componentContext: ComponentContext,
-  val storeFactory: StoreFactory = DefaultStoreFactory(),
+  val storeFactory: StoreFactory,
 ) : RootComponent, ComponentContext by componentContext {
 
   private val stackNavigation = StackNavigation<NavigationConfig>()
