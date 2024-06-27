@@ -6,11 +6,10 @@ import androidx.compose.ui.window.rememberWindowState
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.extensions.compose.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import com.arkivanov.mvikotlin.core.store.StoreFactory
-import com.arkivanov.mvikotlin.main.store.DefaultStoreFactory
 import mikufan.cx.conduit.frontend.app.desktop.util.runOnUiThread
 import mikufan.cx.conduit.frontend.logic.DefaultRootComponent
-import mikufan.cx.conduit.frontend.logic.essentyModule
+import mikufan.cx.conduit.frontend.logic.allModules
+import mikufan.cx.conduit.frontend.logic.util.toComponent
 import mikufan.cx.conduit.frontend.ui.RootScreen
 import mikufan.cx.conduit.frontend.ui.TestMainUI
 import org.koin.dsl.koinApplication
@@ -20,7 +19,7 @@ fun initKoin(componentContext: DefaultComponentContext) = koinApplication {
   modules(module {
     single { componentContext }
   })
-  modules(essentyModule)
+  modules(allModules)
 }
 
 fun main(args: Array<String>) {
@@ -29,9 +28,8 @@ fun main(args: Array<String>) {
     DefaultComponentContext(lifecycle = lifecycle)
   }
   val koin = initKoin(defaultComponentContext).koin
-  val storeFactory = koin.get<StoreFactory>()
   val root = runOnUiThread {
-    DefaultRootComponent(defaultComponentContext, storeFactory)
+    DefaultRootComponent(defaultComponentContext, koin.toComponent())
   }
 
   application {

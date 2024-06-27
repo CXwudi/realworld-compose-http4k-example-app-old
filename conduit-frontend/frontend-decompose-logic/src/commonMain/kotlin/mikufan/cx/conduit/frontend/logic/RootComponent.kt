@@ -7,9 +7,9 @@ import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
-import com.arkivanov.mvikotlin.core.store.StoreFactory
-import com.arkivanov.mvikotlin.main.store.DefaultStoreFactory
 import kotlinx.serialization.Serializable
+import mikufan.cx.conduit.frontend.logic.util.LocalKoinComponent
+import org.koin.core.component.get
 
 interface RootComponent {
   val child: Value<ChildStack<*, RootComponentChild>>
@@ -22,7 +22,7 @@ sealed class RootComponentChild {
 
 class DefaultRootComponent(
   val componentContext: ComponentContext,
-  val storeFactory: StoreFactory,
+  val koinComponent: LocalKoinComponent,
 ) : RootComponent, ComponentContext by componentContext {
 
   private val stackNavigation = StackNavigation<NavigationConfig>()
@@ -42,18 +42,31 @@ class DefaultRootComponent(
   ): RootComponentChild {
     return when (navigationConfig) {
       is NavigationConfig.ScreenAConfig -> RootComponentChild.ScreenA(
-        DefaultScreenAComponent(componentContext, storeFactory) { stackNavigation.push(NavigationConfig.ScreenBConfig(it)) }
+        koinComponent.createScreenAComponent(componentContext) { stackNavigation.push(NavigationConfig.ScreenBConfig(it)) }
       )
+
       is NavigationConfig.ScreenBConfig -> RootComponentChild.ScreenB(
-        DefaultScreenBComponent(navigationConfig.id, componentContext, storeFactory) { stackNavigation.pop() }
+        koinComponent.createScreenBComponent(navigationConfig.id, componentContext) { stackNavigation.pop() }
       )
     }
   }
+
+  private fun LocalKoinComponent.createScreenAComponent(
+    componentContext: ComponentContext,
+    onNavigate: (String) -> Unit
+  ) = DefaultScreenAComponent(componentContext, get()) { onNavigate(it) }
+
+  private fun LocalKoinComponent.createScreenBComponent(
+    id: String,
+    componentContext: ComponentContext,
+    onNavigate: () -> Unit
+  ) = DefaultScreenBComponent(id, componentContext, get()) { onNavigate() }
 
   @Serializable
   private sealed class NavigationConfig {
     @Serializable
     data object ScreenAConfig : NavigationConfig()
+
     @Serializable
     data class ScreenBConfig(val id: String) : NavigationConfig()
   }

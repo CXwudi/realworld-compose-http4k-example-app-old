@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
 
 interface ScreenAStore : Store<ScreenAIntent, ScreenAState, ScreenAToScreenB>
 
-internal class ScreenAStoreFactory(
+class ScreenAStoreFactory(
   private val storeFactory: StoreFactory,
 // other services here
 ) {

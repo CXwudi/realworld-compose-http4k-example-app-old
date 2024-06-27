@@ -1,14 +1,12 @@
 package mikufan.cx.conduit.frontend.logic
 
-import com.arkivanov.essenty.instancekeeper.InstanceKeeper
-import com.arkivanov.essenty.statekeeper.StateKeeper
 import com.arkivanov.mvikotlin.core.store.Store
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.arkivanov.mvikotlin.extensions.coroutines.coroutineExecutorFactory
 
 interface ScreenBStore : Store<ScreenBIntent, ScreenBState, ScreenBLabel>
 
-internal class ScreenBStoreFactory(
+class ScreenBStoreFactory(
   private val storeFactory: StoreFactory,
 ) {
 
