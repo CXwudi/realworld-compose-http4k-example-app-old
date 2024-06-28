@@ -56,6 +56,9 @@ fun ScreenA(
   val text by remember {
     derivedStateOf { state.text }
   }
+  val count by remember {
+    derivedStateOf { state.count }
+  }
 
   OutlinedTextField(
     value = text,
@@ -64,13 +67,20 @@ fun ScreenA(
   Button({ component.send(ScreenAIntent.ToScreenB) }) {
     Text("Navigate to Screen B")
   }
+  Text("Counter: $count")
 }
 
 @Composable
 fun ScreenB(component: ScreenBComponent) = Column {
   Text("Screen B: ")
   Text(component.id)
+  val state by component.state.subscribeAsState()
+  val count by remember {
+    derivedStateOf { state.count }
+  }
+
   Button({ component.send(ScreenBIntent.BackToScreenA) }) {
     Text("Back")
   }
+  Text("Counter: $count")
 }

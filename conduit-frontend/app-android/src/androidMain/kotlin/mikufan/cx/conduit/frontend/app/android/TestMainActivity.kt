@@ -2,12 +2,14 @@ package mikufan.cx.conduit.frontend.app.android
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.defaultComponentContext
 import mikufan.cx.conduit.frontend.logic.DefaultRootComponent
-import mikufan.cx.conduit.frontend.logic.essentyModule
+import mikufan.cx.conduit.frontend.logic.allModules
+import mikufan.cx.conduit.frontend.logic.util.toComponent
 import mikufan.cx.conduit.frontend.ui.RootScreen
 import mikufan.cx.conduit.frontend.ui.TestMainUI
 import org.koin.android.ext.koin.androidContext
@@ -19,17 +21,18 @@ fun initKoin(componentContext: DefaultComponentContext, ctx: Context) = koinAppl
   modules(module {
     single { componentContext }
   })
-  modules(essentyModule)
+  modules(allModules)
 }
 
 class TestMainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    Log.i(this@TestMainActivity::class.simpleName, "onCreate")
 
     val defaultComponentContext = defaultComponentContext()
     val koin = initKoin(defaultComponentContext, this@TestMainActivity).koin
 
-    val rootComponent = DefaultRootComponent(defaultComponentContext, koin.get())
+    val rootComponent = DefaultRootComponent(defaultComponentContext, koin.toComponent())
     setContent {
       TestMainUI {
         RootScreen(rootComponent)
