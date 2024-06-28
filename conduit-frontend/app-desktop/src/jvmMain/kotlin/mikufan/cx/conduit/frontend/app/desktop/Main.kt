@@ -7,11 +7,11 @@ import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.extensions.compose.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import mikufan.cx.conduit.frontend.app.desktop.util.runOnUiThread
-import mikufan.cx.conduit.frontend.logic.DefaultRootComponent
 import mikufan.cx.conduit.frontend.logic.allModules
-import mikufan.cx.conduit.frontend.logic.util.toComponent
+import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
+import mikufan.cx.conduit.frontend.logic.util.toLocalKoinComponent
+import mikufan.cx.conduit.frontend.ui.MainUI
 import mikufan.cx.conduit.frontend.ui.RootScreen
-import mikufan.cx.conduit.frontend.ui.TestMainUI
 import org.koin.dsl.koinApplication
 import org.koin.dsl.module
 
@@ -29,7 +29,7 @@ fun main(args: Array<String>) {
   }
   val koin = initKoin(defaultComponentContext).koin
   val root = runOnUiThread {
-    DefaultRootComponent(defaultComponentContext, koin.toComponent())
+    DefaultRootNavComponent(defaultComponentContext, koin.toLocalKoinComponent())
   }
 
   application {
@@ -41,7 +41,7 @@ fun main(args: Array<String>) {
       onCloseRequest = ::exitApplication,
       title = "Conduit Desktop"
     ) {
-      TestMainUI {
+      MainUI {
         RootScreen(root)
       }
     }

@@ -7,11 +7,11 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.defaultComponentContext
-import mikufan.cx.conduit.frontend.logic.DefaultRootComponent
 import mikufan.cx.conduit.frontend.logic.allModules
-import mikufan.cx.conduit.frontend.logic.util.toComponent
+import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
+import mikufan.cx.conduit.frontend.logic.util.toLocalKoinComponent
+import mikufan.cx.conduit.frontend.ui.MainUI
 import mikufan.cx.conduit.frontend.ui.RootScreen
-import mikufan.cx.conduit.frontend.ui.TestMainUI
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.koinApplication
 import org.koin.dsl.module
@@ -24,17 +24,18 @@ fun initKoin(componentContext: DefaultComponentContext, ctx: Context) = koinAppl
   modules(allModules)
 }
 
-class TestMainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    Log.i(this@TestMainActivity::class.simpleName, "onCreate")
+    Log.i(this@MainActivity::class.simpleName, "onCreate")
 
     val defaultComponentContext = defaultComponentContext()
-    val koin = initKoin(defaultComponentContext, this@TestMainActivity).koin
 
-    val rootComponent = DefaultRootComponent(defaultComponentContext, koin.toComponent())
+    val koin = initKoin(defaultComponentContext, this@MainActivity).koin
+
+    val rootComponent = DefaultRootNavComponent(defaultComponentContext, koin.toLocalKoinComponent())
     setContent {
-      TestMainUI {
+      MainUI {
         RootScreen(rootComponent)
       }
     }

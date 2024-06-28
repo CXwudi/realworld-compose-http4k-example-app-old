@@ -12,4 +12,4 @@ class LocalKoinComponent(
   override fun getKoin() = localKoin
 }
 
-fun Koin.toComponent() = LocalKoinComponent(this)
+fun Koin.toLocalKoinComponent() = LocalKoinComponent(this)

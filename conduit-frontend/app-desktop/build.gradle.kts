@@ -35,6 +35,6 @@ java {
 
 compose.desktop {
   application {
-    mainClass = "mikufan.cx.conduit.frontend.app.desktop.TestMainKt"
+    mainClass = "mikufan.cx.conduit.frontend.app.desktop.MainKt"
   }
 }
