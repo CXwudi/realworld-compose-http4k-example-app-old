@@ -15,8 +15,7 @@ class SampleCounterService(
   stateKeeper: StateKeeper,
 ) {
   private val _counter = MutableValue(stateKeeper.consume("_counter", Int.serializer()) ?: 0)
-  val counter: Value<Int>
-    get() = _counter
+  val counter: Value<Int> = _counter
 
   init {
     stateKeeper.register("_counter", Int.serializer()) {
@@ -38,8 +37,7 @@ class SampleCounterService(
 class SampleCounterNoServive {
 
   private val _counter = MutableValue(0)
-  val counter: Value<Int>
-    get() = _counter
+  val counter: Value<Int> = _counter
 
   init {
     CoroutineScope(Dispatchers.Default).launch {

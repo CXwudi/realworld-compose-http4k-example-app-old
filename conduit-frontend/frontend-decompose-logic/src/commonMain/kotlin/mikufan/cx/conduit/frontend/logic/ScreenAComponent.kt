@@ -16,6 +16,7 @@ class DefaultScreenAComponent(
 ) : ScreenAComponent, ComponentContext by componentContext {
 
   private val store = instanceKeeper.getStore {
+    // the creation of the store must be called inside here
     storeFactory.createStore()
   }
 

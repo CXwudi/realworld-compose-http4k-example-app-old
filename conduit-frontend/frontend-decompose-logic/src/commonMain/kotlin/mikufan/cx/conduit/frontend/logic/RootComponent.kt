@@ -9,6 +9,7 @@ import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
 import kotlinx.serialization.Serializable
 import mikufan.cx.conduit.frontend.logic.util.LocalKoinComponent
+import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 
 interface RootComponent {
@@ -51,17 +52,6 @@ class DefaultRootComponent(
     }
   }
 
-  private fun LocalKoinComponent.createScreenAComponent(
-    componentContext: ComponentContext,
-    onNavigate: (String) -> Unit
-  ) = DefaultScreenAComponent(componentContext, get()) { onNavigate(it) }
-
-  private fun LocalKoinComponent.createScreenBComponent(
-    id: String,
-    componentContext: ComponentContext,
-    onNavigate: () -> Unit
-  ) = DefaultScreenBComponent(id, componentContext, get()) { onNavigate() }
-
   @Serializable
   private sealed class NavigationConfig {
     @Serializable
@@ -71,3 +61,14 @@ class DefaultRootComponent(
     data class ScreenBConfig(val id: String) : NavigationConfig()
   }
 }
+
+private fun KoinComponent.createScreenAComponent(
+  componentContext: ComponentContext,
+  onNavigate: (String) -> Unit
+) = DefaultScreenAComponent(componentContext, get()) { onNavigate(it) }
+
+private fun KoinComponent.createScreenBComponent(
+  id: String,
+  componentContext: ComponentContext,
+  onNavigate: () -> Unit
+) = DefaultScreenBComponent(id, componentContext, get()) { onNavigate() }
