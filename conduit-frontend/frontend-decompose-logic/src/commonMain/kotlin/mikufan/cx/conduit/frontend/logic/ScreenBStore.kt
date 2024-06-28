@@ -4,6 +4,9 @@ import com.arkivanov.mvikotlin.core.store.Reducer
 import com.arkivanov.mvikotlin.core.store.Store
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.arkivanov.mvikotlin.extensions.coroutines.coroutineExecutorFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import mikufan.cx.conduit.frontend.logic.service.SampleCounterNoServive
 
 
@@ -41,7 +44,9 @@ class ScreenBStoreFactory(
       reducer = reducer,
     ) {}
     counterNoServive.counter.subscribe {
-      store.accept(ScreenBIntent.CountChange(it))
+      CoroutineScope(Dispatchers.Main).launch {
+        store.accept(ScreenBIntent.CountChange(it))
+      }
     }
     return store
   }

@@ -8,7 +8,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import kotlinx.serialization.builtins.serializer
 
 
@@ -50,11 +49,8 @@ class SampleCounterNoServive {
           emit(Unit)
         }
       }.collect {
-        withContext(Dispatchers.Main) {
-          _counter.value++
-        }
+        _counter.value++
       }
     }
   }
-
 }
