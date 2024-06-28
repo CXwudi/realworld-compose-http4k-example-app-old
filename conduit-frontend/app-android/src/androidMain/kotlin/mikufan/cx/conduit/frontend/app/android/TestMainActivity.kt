@@ -2,6 +2,7 @@ package mikufan.cx.conduit.frontend.app.android
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import com.arkivanov.decompose.DefaultComponentContext
@@ -26,6 +27,7 @@ fun initKoin(componentContext: DefaultComponentContext, ctx: Context) = koinAppl
 class TestMainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    Log.i(this@TestMainActivity::class.simpleName, "onCreate")
 
     val defaultComponentContext = defaultComponentContext()
     val koin = initKoin(defaultComponentContext, this@TestMainActivity).koin
