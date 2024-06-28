@@ -2,7 +2,6 @@ package mikufan.cx.conduit.backend.service
 
 import mikufan.cx.conduit.backend.db.TransactionManager
 import mikufan.cx.conduit.backend.db.repo.UserRepo
-import mikufan.cx.conduit.backend.db.tx
 import mikufan.cx.conduit.backend.util.ConduitException
 import mikufan.cx.conduit.common.NewUserDto
 import mikufan.cx.conduit.common.UserDto

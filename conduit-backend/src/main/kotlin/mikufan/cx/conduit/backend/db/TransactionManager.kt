@@ -6,11 +6,11 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 interface TransactionManager {
   val db: Database
-}
 
-inline fun <reified T> TransactionManager.tx(crossinline block: Transaction.() -> T): T {
-  return transaction(db) {
-    block()
+  fun <T> tx(block: Transaction.() -> T): T {
+    return transaction(db) {
+      block()
+    }
   }
 }
 
