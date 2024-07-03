@@ -13,6 +13,7 @@ import mikufan.cx.conduit.frontend.logic.util.toLocalKoinComponent
 import mikufan.cx.conduit.frontend.ui.MainUI
 import mikufan.cx.conduit.frontend.ui.RootScreen
 import org.koin.android.ext.koin.androidContext
+import org.koin.compose.KoinContext
 import org.koin.dsl.koinApplication
 import org.koin.dsl.module
 
@@ -35,8 +36,10 @@ class MainActivity : AppCompatActivity() {
 
     val rootComponent = DefaultRootNavComponent(defaultComponentContext, koin.toLocalKoinComponent())
     setContent {
-      MainUI {
-        RootScreen(rootComponent)
+      KoinContext(koin) {
+        MainUI {
+          RootScreen(rootComponent)
+        }
       }
     }
   }
