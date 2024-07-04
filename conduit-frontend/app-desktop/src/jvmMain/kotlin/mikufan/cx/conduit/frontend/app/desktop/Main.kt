@@ -10,15 +10,9 @@ import mikufan.cx.conduit.frontend.app.desktop.util.runOnUiThread
 import mikufan.cx.conduit.frontend.logic.allModules
 import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
 import mikufan.cx.conduit.frontend.logic.util.toLocalKoinComponent
-import mikufan.cx.conduit.frontend.ui.MainUI
-import mikufan.cx.conduit.frontend.ui.RootScreen
 import org.koin.dsl.koinApplication
-import org.koin.dsl.module
 
-fun initKoin(componentContext: DefaultComponentContext) = koinApplication {
-  modules(module {
-    single { componentContext }
-  })
+fun initKoin() = koinApplication {
   modules(allModules)
 }
 
@@ -27,7 +21,7 @@ fun main(args: Array<String>) {
   val defaultComponentContext = runOnUiThread {
     DefaultComponentContext(lifecycle = lifecycle)
   }
-  val koin = initKoin(defaultComponentContext).koin
+  val koin = initKoin().koin
   val root = runOnUiThread {
     DefaultRootNavComponent(defaultComponentContext, koin.toLocalKoinComponent())
   }
@@ -38,12 +32,13 @@ fun main(args: Array<String>) {
 
     LifecycleController(lifecycle, windowState)
     Window(
-      onCloseRequest = ::exitApplication,
-      title = "Conduit Desktop"
+      onCloseRequest = {
+        koin.close()
+        exitApplication()
+      },
+      title = "Conduit Desktop",
     ) {
-      MainUI {
-        RootScreen(root)
-      }
+
     }
   }
 }
