@@ -34,7 +34,6 @@ kotlin {
       implementation(project.dependencies.platform(libs.dev.koinBom))
       implementation("io.insert-koin:koin-core")
       implementation("io.insert-koin:koin-android")
-      implementation("io.insert-koin:koin-androidx-compose")
 
     }
   }

@@ -19,6 +19,8 @@ kotlin {
       implementation(compose.material3)
       implementation(compose.components.resources)
       implementation(compose.components.uiToolingPreview)
+
+      implementation("io.insert-koin:koin-compose")
     }
     commonJvmMain.dependencies {
       implementation(compose.uiTooling)
@@ -28,6 +30,7 @@ kotlin {
       implementation(compose.desktop.common)
     }
     androidMain.dependencies {
+      implementation("io.insert-koin:koin-androidx-compose")
     }
   }
 }
