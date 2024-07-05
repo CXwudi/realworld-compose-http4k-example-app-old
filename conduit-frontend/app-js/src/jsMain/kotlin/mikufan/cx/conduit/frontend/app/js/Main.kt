@@ -1,7 +1,5 @@
 package mikufan.cx.conduit.frontend.app.js
 
-import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.window.CanvasBasedWindow
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import com.arkivanov.essenty.lifecycle.resume
@@ -21,7 +19,6 @@ fun initKoin() = koinApplication {
 }
 
 
-@OptIn(ExperimentalComposeUiApi::class)
 fun main(args: Array<String>) {
 
   val lifecycle = LifecycleRegistry()
@@ -35,7 +32,7 @@ fun main(args: Array<String>) {
   lifecycle.attachToDocument()
 
   onWasmReady {
-    CanvasBasedWindow("Conduit") {
+    BrowserViewportWindow("Conduit") {
 
     }
   }
