@@ -34,3 +34,7 @@ kotlin {
     }
   }
 }
+
+compose.resources {
+  packageOfResClass = "mikufan.cx.conduit.frontend.ui.resources"
+}
