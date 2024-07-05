@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.arkivanov.decompose.defaultComponentContext
 import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
 import mikufan.cx.conduit.frontend.logic.util.toLocalKoinComponent
-import org.koin.compose.KoinContext
+
 
 class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +21,7 @@ class MainActivity : AppCompatActivity() {
     val rootComponent =
       DefaultRootNavComponent(defaultComponentContext, mainApplication.koin.toLocalKoinComponent())
     setContent {
-      KoinContext(mainApplication.koin) {
 
-      }
     }
   }
 
