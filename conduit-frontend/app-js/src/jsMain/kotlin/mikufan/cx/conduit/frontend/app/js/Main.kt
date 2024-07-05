@@ -7,6 +7,7 @@ import com.arkivanov.essenty.lifecycle.stop
 import mikufan.cx.conduit.frontend.logic.allModules
 import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
 import mikufan.cx.conduit.frontend.logic.util.toLocalKoinComponent
+import mikufan.cx.conduit.frontend.ui.MainUI
 import org.jetbrains.skiko.wasm.onWasmReady
 import org.koin.dsl.koinApplication
 import web.dom.DocumentVisibilityState
@@ -33,7 +34,7 @@ fun main(args: Array<String>) {
 
   onWasmReady {
     BrowserViewportWindow("Conduit") {
-
+      MainUI(koin, rootComponent)
     }
   }
 }

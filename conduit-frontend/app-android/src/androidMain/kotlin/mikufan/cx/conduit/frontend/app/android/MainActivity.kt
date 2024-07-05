@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.arkivanov.decompose.defaultComponentContext
 import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
 import mikufan.cx.conduit.frontend.logic.util.toLocalKoinComponent
+import mikufan.cx.conduit.frontend.ui.MainUI
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     val rootComponent =
       DefaultRootNavComponent(defaultComponentContext, mainApplication.koin.toLocalKoinComponent())
     setContent {
-
+      MainUI(mainApplication.koin, rootComponent)
     }
   }
 

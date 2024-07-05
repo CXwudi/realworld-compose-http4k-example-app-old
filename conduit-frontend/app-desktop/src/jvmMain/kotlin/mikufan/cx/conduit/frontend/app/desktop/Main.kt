@@ -10,6 +10,7 @@ import mikufan.cx.conduit.frontend.app.desktop.util.runOnUiThread
 import mikufan.cx.conduit.frontend.logic.allModules
 import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
 import mikufan.cx.conduit.frontend.logic.util.toLocalKoinComponent
+import mikufan.cx.conduit.frontend.ui.MainUI
 import org.koin.dsl.koinApplication
 
 fun initKoin() = koinApplication {
@@ -22,7 +23,7 @@ fun main(args: Array<String>) {
     DefaultComponentContext(lifecycle = lifecycle)
   }
   val koin = initKoin().koin
-  val root = runOnUiThread {
+  val rootComponent = runOnUiThread {
     DefaultRootNavComponent(defaultComponentContext, koin.toLocalKoinComponent())
   }
 
@@ -38,7 +39,7 @@ fun main(args: Array<String>) {
       },
       title = "Conduit Desktop",
     ) {
-
+      MainUI(koin, rootComponent)
     }
   }
 }
