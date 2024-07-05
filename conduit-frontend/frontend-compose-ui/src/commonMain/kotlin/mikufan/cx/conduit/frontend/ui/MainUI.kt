@@ -1,8 +1,7 @@
 package mikufan.cx.conduit.frontend.ui
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
+import mikufan.cx.conduit.frontend.logic.root.DefaultRootNavComponent
 import mikufan.cx.conduit.frontend.ui.theme.AppTheme
 import org.koin.compose.KoinContext
 import org.koin.core.Koin
@@ -19,7 +18,3 @@ fun MainUI(
   }
 }
 
-@Composable
-fun RootScreen(rootComponent: DefaultRootNavComponent, modifier: Modifier = Modifier) {
-
-}

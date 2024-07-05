@@ -1,4 +1,4 @@
-package mikufan.cx.conduit.frontend.logic.component
+package mikufan.cx.conduit.frontend.logic.root
 
 import com.arkivanov.decompose.ComponentContext
 import mikufan.cx.conduit.frontend.logic.util.LocalKoinComponent
