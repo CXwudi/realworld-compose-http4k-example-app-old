@@ -30,6 +30,7 @@ kotlin {
     }
 
     androidMain.dependencies {
+      implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android")
       implementation(Libs.AndroidXCoreKtx)
       implementation(Libs.AndroidXAppCompat)
     }
