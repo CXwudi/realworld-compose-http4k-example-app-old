@@ -9,7 +9,7 @@ import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import mikufan.cx.conduit.frontend.app.desktop.util.runOnUiThread
 import mikufan.cx.conduit.frontend.logic.allModules
 import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
-import mikufan.cx.conduit.frontend.logic.util.toLocalKoinComponent
+import mikufan.cx.conduit.frontend.logic.component.util.toLocalKoinComponent
 import mikufan.cx.conduit.frontend.ui.MainUI
 import org.koin.dsl.koinApplication
 

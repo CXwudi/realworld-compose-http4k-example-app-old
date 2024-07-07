@@ -1,7 +1,7 @@
 package mikufan.cx.conduit.frontend.logic.component
 
 import com.arkivanov.decompose.ComponentContext
-import mikufan.cx.conduit.frontend.logic.util.LocalKoinComponent
+import mikufan.cx.conduit.frontend.logic.component.util.LocalKoinComponent
 
 interface RootNavComponent {
 //  val child: Value<ChildStack<*, RootComponentChild>>

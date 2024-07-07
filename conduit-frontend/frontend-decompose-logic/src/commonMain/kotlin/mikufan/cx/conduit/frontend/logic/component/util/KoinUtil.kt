@@ -1,4 +1,4 @@
-package mikufan.cx.conduit.frontend.logic.util
+package mikufan.cx.conduit.frontend.logic.component.util
 
 import org.koin.core.Koin
 import org.koin.core.component.KoinComponent
