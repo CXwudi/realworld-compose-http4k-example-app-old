@@ -1,7 +1,10 @@
 package mikufan.cx.conduit.frontend.ui.screen.landing
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -13,6 +16,7 @@ import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import mikufan.cx.conduit.frontend.logic.landing.LandingPageComponent
 import mikufan.cx.conduit.frontend.logic.landing.LandingPageIntent
+import mikufan.cx.conduit.frontend.ui.theme.LocalSpace
 
 @Composable
 fun LandingPage(component: LandingPageComponent, modifier: Modifier = Modifier) {
@@ -24,11 +28,20 @@ fun LandingPage(component: LandingPageComponent, modifier: Modifier = Modifier) 
     contentAlignment = Alignment.Center,
     modifier = modifier.fillMaxSize()
   ) {
-    OutlinedTextField(
-      value = urlText,
-      label = { Text("URL") },
-      onValueChange = { component.send(LandingPageIntent.TextChanged(it)) }
-    )
+    Column(
+      horizontalAlignment = Alignment.CenterHorizontally,
+      verticalArrangement = Arrangement.spacedBy(LocalSpace.current.vertical.spacing)
+    ) {
+      OutlinedTextField(
+        value = urlText,
+        label = { Text("URL") },
+        onValueChange = { component.send(LandingPageIntent.TextChanged(it)) }
+      )
+      Button(onClick = { component.send(LandingPageIntent.ToNextPage) }) {
+        Text("Connect")
+      }
+    }
+
   }
 
 }
