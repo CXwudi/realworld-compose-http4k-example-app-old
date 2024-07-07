@@ -32,6 +32,7 @@ class LandingPageStoreFactory(
         dispatch(Msg.TextChanged(it.text))
       }
       onIntent<LandingPageIntent.ToNextPage> {
+        // TODO: verify it is a valid URL format and save it into disk
         publish(ToNextPageLabel)
       }
     }

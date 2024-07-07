@@ -1,4 +1,4 @@
-package mikufan.cx.conduit.frontend.ui.screen.landing
+package mikufan.cx.conduit.frontend.ui.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

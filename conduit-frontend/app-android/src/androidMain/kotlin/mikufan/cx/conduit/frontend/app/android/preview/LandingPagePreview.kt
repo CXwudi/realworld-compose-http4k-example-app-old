@@ -7,7 +7,7 @@ import com.arkivanov.decompose.value.Value
 import mikufan.cx.conduit.frontend.logic.component.landing.LandingPageComponent
 import mikufan.cx.conduit.frontend.logic.component.landing.LandingPageIntent
 import mikufan.cx.conduit.frontend.logic.component.landing.LandingPageState
-import mikufan.cx.conduit.frontend.ui.screen.landing.LandingPage
+import mikufan.cx.conduit.frontend.ui.screen.LandingPage
 import mikufan.cx.conduit.frontend.ui.util.SetupUI
 
 @Composable
