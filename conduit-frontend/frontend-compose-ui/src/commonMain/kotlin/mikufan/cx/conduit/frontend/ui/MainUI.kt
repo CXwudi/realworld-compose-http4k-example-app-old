@@ -2,7 +2,8 @@ package mikufan.cx.conduit.frontend.ui
 
 import androidx.compose.runtime.Composable
 import mikufan.cx.conduit.frontend.logic.root.DefaultRootNavComponent
-import mikufan.cx.conduit.frontend.ui.theme.AppTheme
+import mikufan.cx.conduit.frontend.ui.screen.RootNavigation
+import mikufan.cx.conduit.frontend.ui.util.SetupUI
 import org.koin.compose.KoinContext
 import org.koin.core.Koin
 
@@ -12,8 +13,8 @@ fun MainUI(
   rootComponent: DefaultRootNavComponent,
 ) {
   KoinContext(context = koin) { // currently unused, but added in case if we need it
-    AppTheme {
-      RootScreen(rootComponent)
+    SetupUI {
+      RootNavigation(rootComponent)
     }
   }
 }
