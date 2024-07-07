@@ -12,9 +12,10 @@ fun WithProperSize(
   content: @Composable () -> Unit
 ) {
   val windowSizeClass = calculateWindowSizeClass()
+  val spacing = windowSizeClass.calculateSpace()
   CompositionLocalProvider(
     LocalWindowSize provides windowSizeClass,
-  ) {
-    content()
-  }
+    LocalSpace provides spacing,
+    content = content
+  )
 }
