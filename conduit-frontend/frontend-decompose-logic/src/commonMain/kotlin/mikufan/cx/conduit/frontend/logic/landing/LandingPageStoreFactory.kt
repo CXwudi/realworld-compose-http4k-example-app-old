@@ -1,7 +1,6 @@
 package mikufan.cx.conduit.frontend.logic.landing
 
 import com.arkivanov.mvikotlin.core.store.Reducer
-import com.arkivanov.mvikotlin.core.store.Store
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.arkivanov.mvikotlin.extensions.coroutines.coroutineExecutorFactory
 import kotlinx.serialization.Serializable
@@ -43,12 +42,11 @@ class LandingPageStoreFactory(
     }
   }
 
-  fun createStore() = object :
-    Store<LandingPageIntent, LandingPageState, ToNextPageLabel> by storeFactory.create(
+  fun createStore() = storeFactory.create(
       name = "LandingPageStore",
       initialState = LandingPageState(""),
       executorFactory = executor,
       reducer = reducer
-    ) {}
+    )
 }
 

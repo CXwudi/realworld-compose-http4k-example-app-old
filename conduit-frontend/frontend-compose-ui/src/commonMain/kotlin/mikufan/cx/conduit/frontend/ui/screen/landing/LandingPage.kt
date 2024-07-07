@@ -1,7 +1,7 @@
-package mikufan.cx.conduit.frontend.ui.landing
+package mikufan.cx.conduit.frontend.ui.screen.landing
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,14 +20,15 @@ fun LandingPage(component: LandingPageComponent, modifier: Modifier = Modifier) 
   val state by component.state.subscribeAsState()
   val urlText by remember { derivedStateOf { state.url } }
 
-  Column(
-    verticalArrangement = Arrangement.Center,
-    horizontalAlignment = Alignment.CenterHorizontally,
-    modifier = modifier
+  Box(
+    contentAlignment = Alignment.Center,
+    modifier = modifier.fillMaxSize()
   ) {
     OutlinedTextField(
       value = urlText,
       label = { Text("URL") },
-      onValueChange = { component.send(LandingPageIntent.TextChanged(it)) })
+      onValueChange = { component.send(LandingPageIntent.TextChanged(it)) }
+    )
   }
+
 }
