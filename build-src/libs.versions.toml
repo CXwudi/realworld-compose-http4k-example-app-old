@@ -19,8 +19,8 @@ mvikotlin = "4.1.0"
 koin = "3.5.6"
 
 junit = "5.10.2"
-http4k = "5.23.0.0"
-exposed = "0.51.1"
+http4k = "5.25.0.0"
+exposed = "0.52.0"
 
 [libraries]
 # dev dep
@@ -38,9 +38,9 @@ dev-kotlinWrapper = "org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre
 dev-windowSizeClassMultiplatform = "dev.chrisbanes.material3:material3-window-size-class-multiplatform:0.5.0"
 
 # android
-dev-androidx-activityCompose = "androidx.activity:activity-compose:1.9.0"
-dev-androidx-appcompat = "androidx.appcompat:appcompat:1.7.0"
 dev-androidx-coreKtx = "androidx.core:core-ktx:1.13.1"
+dev-androidx-appcompat = "androidx.appcompat:appcompat:1.7.0"
+dev-androidx-activityCompose = "androidx.activity:activity-compose:1.9.0"
 
 # backend
 dev-http4kBom = { module = "org.http4k:http4k-bom", version.ref = "http4k" }
