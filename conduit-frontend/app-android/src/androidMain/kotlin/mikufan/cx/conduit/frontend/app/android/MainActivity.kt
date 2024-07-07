@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import com.arkivanov.decompose.defaultComponentContext
-import mikufan.cx.conduit.frontend.logic.root.DefaultRootNavComponent
+import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
 import mikufan.cx.conduit.frontend.logic.util.toLocalKoinComponent
 import mikufan.cx.conduit.frontend.ui.MainUI
 

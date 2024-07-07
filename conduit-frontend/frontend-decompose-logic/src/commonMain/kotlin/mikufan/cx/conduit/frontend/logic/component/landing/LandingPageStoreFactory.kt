@@ -1,4 +1,4 @@
-package mikufan.cx.conduit.frontend.logic.landing
+package mikufan.cx.conduit.frontend.logic.component.landing
 
 import com.arkivanov.mvikotlin.core.store.Reducer
 import com.arkivanov.mvikotlin.core.store.StoreFactory

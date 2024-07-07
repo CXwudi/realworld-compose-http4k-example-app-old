@@ -1,7 +1,7 @@
 package mikufan.cx.conduit.frontend.ui
 
 import androidx.compose.runtime.Composable
-import mikufan.cx.conduit.frontend.logic.root.DefaultRootNavComponent
+import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
 import mikufan.cx.conduit.frontend.ui.screen.RootNavigation
 import mikufan.cx.conduit.frontend.ui.util.SetupUI
 import org.koin.compose.KoinContext

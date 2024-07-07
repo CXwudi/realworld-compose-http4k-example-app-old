@@ -14,8 +14,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
-import mikufan.cx.conduit.frontend.logic.landing.LandingPageComponent
-import mikufan.cx.conduit.frontend.logic.landing.LandingPageIntent
+import mikufan.cx.conduit.frontend.logic.component.landing.LandingPageComponent
+import mikufan.cx.conduit.frontend.logic.component.landing.LandingPageIntent
 import mikufan.cx.conduit.frontend.ui.theme.LocalSpace
 
 @Composable

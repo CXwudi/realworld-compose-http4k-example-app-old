@@ -1,4 +1,4 @@
-package mikufan.cx.conduit.frontend.logic.landing
+package mikufan.cx.conduit.frontend.logic.component.landing
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.value.Value
