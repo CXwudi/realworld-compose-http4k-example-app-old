@@ -32,7 +32,6 @@ kotlin {
     androidMain.dependencies {
       implementation(Libs.AndroidXCoreKtx)
       implementation(Libs.AndroidXAppCompat)
-      implementation(Libs.AndroidXActivityCompose)
     }
   }
 }

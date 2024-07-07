@@ -31,6 +31,7 @@ kotlin {
       implementation(compose.desktop.common)
     }
     androidMain.dependencies {
+      implementation(libs.dev.androidx.activityCompose)
       implementation("io.insert-koin:koin-androidx-compose")
     }
   }
