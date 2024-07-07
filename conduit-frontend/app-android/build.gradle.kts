@@ -18,7 +18,9 @@ kotlin {
 //      implementation(compose.foundation)
 //      implementation(compose.material3)
 //      implementation(compose.components.resources)
-//      implementation(compose.components.uiToolingPreview)
+      implementation(compose.components.uiToolingPreview)
+      implementation(compose.uiTooling)
+      implementation(compose.preview)
 
       implementation(libs.dev.androidx.appcompat)
       implementation(libs.dev.androidx.coreKtx)
