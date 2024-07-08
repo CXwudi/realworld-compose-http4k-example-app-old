@@ -10,8 +10,6 @@ fun SetupUI(
   content: @Composable () -> Unit
 ) {
   WithProperSize {
-    AppTheme {
-      content()
-    }
+    AppTheme(content = content)
   }
 }
