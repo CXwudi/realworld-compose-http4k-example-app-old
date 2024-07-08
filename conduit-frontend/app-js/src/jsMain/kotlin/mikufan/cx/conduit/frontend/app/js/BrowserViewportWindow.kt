@@ -8,8 +8,6 @@ import kotlinx.browser.window
 import org.w3c.dom.HTMLCanvasElement
 import org.w3c.dom.HTMLStyleElement
 
-private const val CANVAS_ELEMENT_ID = "ComposeTarget" // Hardwired into ComposeWindow
-
 /**
  * A Skiko/Canvas-based top-level window using the browser's entire viewport. Supports resizing.
  */
@@ -17,6 +15,7 @@ private const val CANVAS_ELEMENT_ID = "ComposeTarget" // Hardwired into ComposeW
 @Suppress("FunctionName")
 fun BrowserViewportWindow(
   title: String,
+  canvasElementId: String = "ComposeTarget",
   content: @Composable () -> Unit,
 ) {
   val htmlHeadElement = document.head!!
@@ -32,7 +31,7 @@ fun BrowserViewportWindow(
                         padding: 0 !important;
                     }
 
-                    #$CANVAS_ELEMENT_ID {
+                    #$canvasElementId {
                         outline: none;
                     }
                     """.trimIndent(),
@@ -46,7 +45,7 @@ fun BrowserViewportWindow(
     setAttribute("height", "${window.innerHeight}")
   }
 
-  (document.getElementById(CANVAS_ELEMENT_ID) as HTMLCanvasElement).apply {
+  (document.getElementById(canvasElementId) as HTMLCanvasElement).apply {
     fillViewportSize()
   }
 
@@ -55,7 +54,7 @@ fun BrowserViewportWindow(
     ?: document.createElement("title").also { htmlHeadElement.appendChild(it) }
   titleElement.textContent = title
 
-  CanvasBasedWindow(title = title) {
+  CanvasBasedWindow(title = title, canvasElementId = canvasElementId) {
     content()
   }
 }

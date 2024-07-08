@@ -33,7 +33,7 @@ fun main(args: Array<String>) {
   lifecycle.attachToDocument()
 
   onWasmReady {
-    BrowserViewportWindow("Conduit") {
+    BrowserViewportWindow(title = "Conduit Web", canvasElementId = "ConduitCanvas") {
       MainUI(koin, rootComponent)
     }
   }
