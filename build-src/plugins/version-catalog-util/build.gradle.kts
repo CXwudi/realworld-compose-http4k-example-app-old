@@ -20,8 +20,9 @@ buildConfig {
     buildConfigField(String::class.java, "MviKotlinLogging", libs.dev.mvikotlinLogging.map { "$it" })
     buildConfigField(String::class.java, "KoinBom", libs.dev.koinBom.map { "$it" })
     buildConfigField(String::class.java, "KotlinWrapper", libs.dev.kotlinWrapper.map { "$it" })
-    buildConfigField(String::class.java, "AndroidXAppCompat", libs.dev.androidx.appcompat.map { "$it" })
     buildConfigField(String::class.java, "AndroidXCoreKtx", libs.dev.androidx.coreKtx.map { "$it" })
+    buildConfigField(String::class.java, "AndroidXLifecycleKtx", libs.dev.androidx.lifecycleKtx.map { "$it" })
+    buildConfigField(String::class.java, "AndroidXAppCompat", libs.dev.androidx.appcompat.map { "$it" })
     buildConfigField(String::class.java, "AndroidXActivityCompose", libs.dev.androidx.activityCompose.map { "$it" })
   }
 }

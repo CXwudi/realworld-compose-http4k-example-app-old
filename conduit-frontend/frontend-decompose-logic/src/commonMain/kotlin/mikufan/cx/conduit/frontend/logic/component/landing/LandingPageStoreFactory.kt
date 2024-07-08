@@ -33,6 +33,7 @@ class LandingPageStoreFactory(
       }
       onIntent<LandingPageIntent.ToNextPage> {
         // TODO: verify it is a valid URL format and save it into disk
+        // if it is not valid, show an error
         publish(ToNextPageLabel)
       }
     }

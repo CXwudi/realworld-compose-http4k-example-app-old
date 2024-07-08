@@ -17,6 +17,7 @@ compose = "1.6.11"
 decompose = "3.1.0"
 mvikotlin = "4.1.0"
 koin = "3.5.6"
+sqldelight = "2.0.2"
 
 junit = "5.10.2"
 http4k = "5.25.0.0"
@@ -36,10 +37,15 @@ dev-mvikotlinLogging = { module = "com.arkivanov.mvikotlin:mvikotlin-logging", v
 dev-koinBom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
 dev-kotlinWrapper = "org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.763"
 dev-windowSizeClassMultiplatform = "dev.chrisbanes.material3:material3-window-size-class-multiplatform:0.5.0"
+dev-sqldelightDriver-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
+dev-sqldelightDriver-ios = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
+dev-sqldelightDriver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
+dev-sqldelightDriver-js = { module = "app.cash.sqldelight:web-worker-driver", version.ref = "sqldelight" }
 
 # android
 dev-androidx-coreKtx = "androidx.core:core-ktx:1.13.1"
 dev-androidx-appcompat = "androidx.appcompat:appcompat:1.7.0"
+dev-androidx-lifecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.8.3"
 dev-androidx-activityCompose = "androidx.activity:activity-compose:1.9.0"
 
 # backend
@@ -75,5 +81,6 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinCompose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 # a plugin used by gradle files for precompiled script plugin
 buildConfig = { id = "com.github.gmazzo.buildconfig", version = "5.3.5" }

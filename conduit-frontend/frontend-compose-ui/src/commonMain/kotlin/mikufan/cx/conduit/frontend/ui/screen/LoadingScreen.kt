@@ -19,10 +19,10 @@ import mikufan.cx.conduit.frontend.ui.theme.LocalSpace
 
 @Composable
 fun LoadingScreen(modifier: Modifier = Modifier) {
-  val dotState = remember { mutableStateOf(0) }
+  val dotState = remember { mutableStateOf(1) }
   LaunchedEffect(Unit) {
     while (true) {
-      dotState.value = 1 + (dotState.value + 1) % 3
+      dotState.value = dotState.value % 3 + 1
       delay(500L)
     }
   }

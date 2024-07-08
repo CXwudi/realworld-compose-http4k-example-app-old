@@ -1,0 +1,3 @@
+
+getSingleConfig:
+SELECT * FROM user_config WHERE id = 1;
