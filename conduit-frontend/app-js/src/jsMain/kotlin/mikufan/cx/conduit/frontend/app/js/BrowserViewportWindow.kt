@@ -10,6 +10,8 @@ import org.w3c.dom.HTMLStyleElement
 
 /**
  * A Skiko/Canvas-based top-level window using the browser's entire viewport. Supports resizing.
+ *
+ * Copied and modified from https://github.com/chrisbanes/material3-windowsizeclass-multiplatform/blob/main/sample/web-js-app/src/jsMain/kotlin/dev/chrisbanes/material3/windowsizeclass/sample/BrowserViewportWindow.kt
  */
 @OptIn(ExperimentalComposeUiApi::class)
 @Suppress("FunctionName")
