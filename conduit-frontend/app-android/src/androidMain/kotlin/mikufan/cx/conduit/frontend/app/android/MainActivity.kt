@@ -3,6 +3,7 @@ package mikufan.cx.conduit.frontend.app.android
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.arkivanov.decompose.defaultComponentContext
 import mikufan.cx.conduit.frontend.logic.component.DefaultRootNavComponent
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     val rootComponent =
       DefaultRootNavComponent(defaultComponentContext, mainApplication.koin.toLocalKoinComponent())
+    enableEdgeToEdge()
     setContent {
       MainUI(mainApplication.koin, rootComponent)
     }
